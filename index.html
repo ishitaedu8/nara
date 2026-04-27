@@ -4,486 +4,765 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     
-    <!-- BUG 12: META TAGS FOR EF PREVIEW -->
-    <title>NARA by Ishita Ghosh | Somatic Performance Protocol</title>
-    <meta name="description" content="Built by Ishita Ghosh — former World-Ranker in Karate and National Champion in Powerlifting. NARA is the 90-day somatic protocol that rebuilt her in 365 days instead of 1825. Now building it for Gen Z.">
-    <meta property="og:title" content="NARA by Ishita Ghosh">
-    <meta property="og:description" content="The 90-day somatic protocol built from a neuropsychiatric miracle.">
+    <title>NARA by Ishita Ghosh | The 100-Degree Protocol</title>
+    <meta name="description" content="Built by Ishita Ghosh. World-Ranked Athlete. National Champion. Neuropsychiatric survivor. NARA is the somatic protocol that rebuilt her in 365 days instead of 1825. Now building it for Gen Z who are stuck at 99 degrees.">
+    <meta property="og:title" content="NARA | The 100-Degree Protocol">
+    <meta property="og:description" content="Your nervous system is frozen in a past moment. NARA provides the last degree. Built by Ishita Ghosh from personal survival.">
     <meta property="og:url" content="https://ishitaedu8.github.io/nara/">
     <meta property="og:image" content="https://ishitaedu8.github.io/nara/assets/ishita.jpg">
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
     <style>
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         :root {
             --navy: #0A0E1F;
-            --navy-light: #121833;
+            --surface: #12172E;
             --gold: #D4AF37;
             --gold-dark: #B8960C;
-            --white: #F5F0E8;
-            --font-heading: 'Space Grotesk', sans-serif;
-            --font-body: 'Inter', sans-serif;
+            --crimson: #C41E3A;
+            --white: #FFFFFF;
+            --cream: #F5F0E8;
         }
 
-        html, body {
-            height: 100%; width: 100%; overflow-x: hidden;
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
             background: var(--navy);
+            background-image: 
+                radial-gradient(ellipse at 20% 50%, rgba(212,175,55,0.06) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(196,30,58,0.04) 0%, transparent 60%);
+            animation: breathe 8s ease-in-out infinite;
             color: var(--white);
-            font-family: var(--font-body);
+            font-family: 'Inter', sans-serif;
             -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
         }
 
-        h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 700; }
-
-        /* BUG 1: LIVING BACKGROUND */
-        body::before {
-            content: ""; position: fixed; inset: 0;
-            background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.08), transparent 70%);
-            z-index: -1; pointer-events: none;
-            animation: wavePulse 10s ease-in-out infinite;
+        @keyframes breathe {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.85; }
         }
-        @keyframes wavePulse {
-            0%, 100% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.2); opacity: 0.8; }
+
+        h1, h2, h3, h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 800;
         }
 
         .screen {
-            position: absolute; inset: 0; display: none; flex-direction: column;
-            opacity: 0; overflow-y: auto; overflow-x: hidden;
-            transition: opacity 0.5s ease; z-index: 1;
-            padding-bottom: 180px;
+            position: absolute;
+            inset: 0;
+            display: none;
+            flex-direction: column;
+            opacity: 0;
+            overflow-y: auto;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+            padding-bottom: 220px;
         }
-        .screen.active { display: flex; opacity: 1; z-index: 10; }
-        .screen-pad { padding: 40px 24px; }
 
-        /* BUG 4: SILICON VALLEY BUTTONS */
-        .btn-gold {
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark)) !important;
-            color: var(--navy) !important;
-            font-weight: 700; font-size: 16px;
-            padding: 18px 32px; border-radius: 50px;
-            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
-            transition: all 0.2s ease; text-align: center;
-            width: 100%; text-transform: uppercase; letter-spacing: 1px;
-            border: none !important; cursor: pointer;
+        .screen.active {
+            display: flex;
+            opacity: 1;
+            z-index: 10;
         }
-        .btn-gold:hover { transform: scale(1.03); }
-        .btn-gold:disabled { opacity: 0.3 !important; cursor: not-allowed; }
 
-        /* BUG 5: GLASSMORPHISM CARDS */
-        .glass-card {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
+        .screen-pad { padding: 40px 16px; }
+
+        .founder-photo-wrap {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 3px solid #D4AF37;
+            box-shadow: 
+                0 0 0 6px rgba(212,175,55,0.15),
+                0 0 40px rgba(212,175,55,0.25);
+            overflow: hidden;
+            margin: 0 auto 20px;
+        }
+
+        .founder-photo-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .founder-name {
+            font-size: 32px;
+            letter-spacing: 1px;
+            text-align: center;
+            margin-bottom: 4px;
+        }
+
+        .founder-subtitle {
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--gold);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .story-box {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--cream);
+            text-align: left;
             padding: 24px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(212,175,55,0.2);
+            border-radius: 20px;
+            margin: 20px 0;
         }
 
-        /* BUG 3: FOUNDER PHOTO */
-        .founder-photo {
-            width: 140px; height: 140px; border-radius: 50%;
-            border: 3px solid var(--gold);
-            object-fit: cover; margin: 0 auto 24px; display: block;
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+        .btn-gold {
+            background: linear-gradient(135deg, #D4AF37 0%, #B8960C 100%);
+            color: var(--navy);
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            padding: 18px 32px;
+            border-radius: 50px;
+            border: none;
+            box-shadow: 0 4px 24px rgba(212,175,55,0.35);
+            width: calc(100% - 32px);
+            margin: 8px 16px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
         }
 
-        /* BUG 10: LOADING SCREEN */
-        #loading-screen {
-            position: fixed; inset: 0; background: var(--navy);
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            z-index: 9999; transition: opacity 0.5s ease;
-        }
-        .logo-n { font-size: 120px; font-weight: 900; color: var(--gold); font-family: var(--font-heading); line-height: 1; }
-
-        /* BUG 7: QUIZ SLIDE ANIMATION */
-        .quiz-container { position: relative; width: 100%; overflow: hidden; height: 450px; }
-        .quiz-card-wrapper {
-            position: absolute; width: 100%; transition: transform 0.4s ease, opacity 0.4s ease;
-            display: flex; flex-direction: column;
-        }
-        .slide-left { transform: translateX(-100%); opacity: 0; }
-        .slide-right { transform: translateX(100%); opacity: 0; }
-        .slide-active { transform: translateX(0); opacity: 1; }
-
-        .progress-bar-bg { width: 100%; height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; margin-bottom: 20px; }
-        .progress-bar-fill { height: 100%; background: var(--gold); border-radius: 3px; transition: width 0.3s ease; }
-
-        /* BUG 8: BREATHING ORB */
-        .orb-outer {
-            width: 250px; height: 250px; margin: 20px auto;
-            display: flex; align-items: center; justify-content: center;
-        }
-        .orb-inner {
-            width: 120px; height: 120px; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-weight: 900; font-size: 14px; color: var(--navy);
-            transition: all 0.1s linear;
-            box-shadow: 0 0 40px rgba(212, 175, 55, 0.3);
-        }
-
-        /* BUG 6: BOTTOM NAV */
-        .bottom-nav {
-            position: fixed; bottom: 0; left: 0; right: 0;
-            background: rgba(10, 14, 31, 0.95);
-            backdrop-filter: blur(15px); border-top: 1px solid rgba(212, 175, 55, 0.2);
-            display: none; align-items: center; justify-content: space-around;
-            padding: 16px 0; z-index: 100;
-        }
-        .nav-android { padding-bottom: 60px; }
-        .nav-ios { padding-bottom: 80px; }
-
-        /* BUG 1 & 9: INPUT VISIBILITY */
-        textarea, input, select {
-            background-color: #FFFFFF !important;
-            color: #000000 !important;
-            -webkit-text-fill-color: #000000 !important;
-            padding: 16px !important;
-            font-size: 16px !important;
-            font-weight: 600 !important;
-            border: 2px solid var(--gold) !important;
-            border-radius: 12px !important;
-            width: 100%; margin-bottom: 16px; outline: none !important;
-        }
-
-        .progress-ring-container { position: relative; width: 220px; height: 220px; margin: 0 auto; display: flex; align-items: center; justify-content: center; }
-        .progress-ring-circle { transform: rotate(-90deg); transform-origin: 50% 50%; transition: stroke-dashoffset 1s ease; }
-        .degrees-num { font-size: 80px; font-weight: 700; color: var(--gold); font-family: var(--font-heading); position: absolute; }
-
-        .particle { position: absolute; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; pointer-events: none; opacity: 0; }
-        @keyframes burst {
-            0% { transform: translate(0, 0) scale(1); opacity: 1; }
-            100% { transform: translate(var(--tx), var(--ty)) scale(0); opacity: 0; }
-        }
+        .btn-gold:active { transform: scale(0.97); box-shadow: 0 2px 12px rgba(212,175,55,0.2); }
 
         .voice-control-btn {
-            position: fixed; top: 20px; right: 20px; z-index: 1000;
-            background: rgba(18, 24, 51, 0.8); border: 1.5px solid var(--gold);
-            color: var(--gold); font-weight: 700; padding: 8px 16px;
-            border-radius: 30px; font-size: 11px; backdrop-filter: blur(5px);
+            position: fixed;
+            top: 16px;
+            right: 16px;
+            z-index: 9999;
+            background: transparent;
+            border: 1.5px solid #D4AF37;
+            color: #D4AF37;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            padding: 8px 14px;
+            border-radius: 20px;
+            cursor: pointer;
         }
 
-        .quiz-opt {
-            width: 100%; padding: 16px; border-radius: 16px;
-            border: 1.5px solid var(--gray-dark); background: rgba(255, 255, 255, 0.04);
-            font-size: 14px; margin-bottom: 12px; text-align: left; color: var(--white);
-            cursor: pointer; transition: all 0.2s ease;
+        .quiz-card {
+            background: var(--surface);
+            border: 1px solid rgba(212,175,55,0.25);
+            border-radius: 24px;
+            padding: 32px 24px;
+            margin: 16px;
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
-        .quiz-opt:hover { border-color: var(--gold); background: rgba(212, 175, 55, 0.1); }
+
+        .progress-bar-container {
+            height: 3px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 2px;
+            overflow: hidden;
+            margin: 0 16px 20px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #C41E3A, #D4AF37);
+            transition: width 0.4s ease;
+            width: 0%;
+        }
+
+        .q-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: #FFFFFF;
+            line-height: 1.4;
+            margin-bottom: 32px;
+        }
+
+        .opt-btn {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 14px;
+            padding: 16px 20px;
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            color: var(--cream);
+            margin-bottom: 12px;
+            text-align: left;
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .opt-btn:hover, .opt-btn.selected {
+            border-color: #D4AF37;
+            background: rgba(212,175,55,0.12);
+            color: #D4AF37;
+        }
+
+        .orb-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 48px 0;
+        }
+
+        .orb {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(212,175,55,0.3) 0%, rgba(212,175,55,0.1) 50%, transparent 70%);
+            border: 2px solid rgba(212,175,55,0.6);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.1s linear, border-color 0.3s ease;
+            box-shadow: 0 0 40px rgba(212,175,55,0.2), inset 0 0 40px rgba(212,175,55,0.1);
+        }
+
+        .orb-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #D4AF37;
+        }
+
+        .cycle-count {
+            margin-top: 16px;
+            font-size: 14px;
+            color: rgba(212,175,55,0.7);
+            letter-spacing: 1px;
+        }
+
+        .release-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            padding: 0 16px;
+        }
+
+        .release-card {
+            background: var(--surface);
+            border: 1px solid rgba(212,175,55,0.2);
+            border-radius: 16px;
+            padding: 20px 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .release-card:active { transform: scale(0.95); }
+
+        .emotion-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 10px;
+            color: var(--crimson);
+            letter-spacing: 2px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .action-label {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--gold);
+            margin-top: 4px;
+        }
+
+        .recode-field {
+            width: calc(100% - 32px);
+            margin: 16px;
+            padding: 20px;
+            background: #FFFFFF;
+            color: #000000;
+            font-family: 'Inter', sans-serif;
+            font-size: 17px;
+            border: 2px solid var(--gold);
+            border-radius: 16px;
+            min-height: 120px;
+            resize: none;
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 14, 31, 0.98);
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            display: none;
+            justify-content: space-around;
+            padding: 16px 0;
+            z-index: 100;
+        }
+
+        .bottom-nav.visible { display: flex; }
+
+        .nav-tab {
+            background: none;
+            border: none;
+            color: rgba(255,255,255,0.4);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 8px 12px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .nav-tab.active {
+            color: var(--gold);
+        }
+
+        .nav-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 12px;
+            right: 12px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.9);
+            backdrop-filter: blur(10px);
+            z-index: -1;
+            visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            transition: opacity 0.3s ease;
+            opacity: 0;
+        }
+
+        .modal-overlay.active {
+            z-index: 10000;
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: var(--surface);
+            border: 2px solid var(--gold);
+            border-radius: 24px;
+            padding: 32px;
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        #completion-screen {
+            text-align: center;
+            justify-content: center;
+        }
+
+        .degree-num {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 120px;
+            font-weight: 800;
+            color: var(--gold);
+            line-height: 1;
+        }
+
+        .degree-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            letter-spacing: 4px;
+            color: rgba(212,175,55,0.7);
+            margin-bottom: 24px;
+        }
+
+        .remain-text {
+            font-size: 18px;
+            color: var(--cream);
+            margin-bottom: 8px;
+        }
+
+        .water-logic {
+            font-size: 14px;
+            color: rgba(245,240,232,0.6);
+            line-height: 1.6;
+            margin-bottom: 40px;
+            padding: 0 20px;
+        }
+
+        #nav-spacer-ios { height: 80px; }
+        #nav-spacer-android { height: 60px; }
     </style>
 </head>
 <body>
 
-<div id="loading-screen">
-    <div class="logo-n">N</div>
-    <div class="text-gold mt-4 font-bold tracking-widest uppercase text-xs">Loading your frequency...</div>
+<button id="voice-guide-toggle" class="voice-control-btn" onclick="S.toggleVoice()">VOICE GUIDE: OFF</button>
+
+<!-- MODAL: TELL THE TRUTH -->
+<div id="truth-modal" class="modal-overlay">
+    <div class="modal-content">
+        <h3 class="text-gold text-2xl mb-4">Tell the Truth</h3>
+        <p class="text-cream text-sm mb-6">Did the profile match your inner reality? Be honest.</p>
+        <textarea id="feedback-text" class="recode-field" style="margin:0 0 24px 0; min-height:100px;" placeholder="Your truth here..."></textarea>
+        <div class="flex gap-4">
+            <button class="btn-gold" style="margin:0; width:50%; background:transparent; border:1.5px solid #D4AF37 !important; color:#D4AF37 !important;" onclick="S.closeTruth()">Close</button>
+            <button class="btn-gold" style="margin:0; width:50%;" onclick="S.submitTruth()">Submit</button>
+        </div>
+    </div>
 </div>
 
-<button id="voice-guide-toggle" class="voice-control-btn" onclick="S.toggleVoiceGuide()">VOICE GUIDE: OFF</button>
-
-<div id="opening-screen" class="screen active">
+<!-- 1. FOUNDER SCREEN -->
+<div id="founder-screen" class="screen active">
     <div class="screen-pad text-center">
-        <img src="https://ishitaedu8.github.io/nara/assets/ishita.jpg" class="founder-photo" alt="Ishita Ghosh" onerror="this.src='https://customer-assets.emergentagent.com/wingman/eb358bd2-9b79-4f1e-a1ab-99b2658eb5f7/attachments/70b5e084dace44d9a09df4971e0ad6c3_image.bin'">
-        <h2 class="text-white text-3xl mb-1">Ishita Ghosh</h2>
-        <p class="text-gold text-sm uppercase tracking-widest mb-10">Solo Founder & Systems Architect</p>
-        <button class="btn-gold mb-8" onclick="S.toggleStory()">Read My Story</button>
-        <div id="embedded-story" class="glass-card text-left text-sm leading-relaxed mb-8 hidden">
-            My name is Ishita Ghosh. I was an elite athlete. Former World Ranker. National Champion.
-            In early 2024, everything stopped. 23 days in a semi-coma state. Doctors gave me a 5-year prognosis to recover. I beat it in 1 year.
-            NARA is the system I built so you can find your 100th degree too. Welcome to the Body Realm.
+        <div class="founder-photo-wrap">
+            <img src="https://ishitaedu8.github.io/nara/assets/ishita.jpg" alt="Ishita Ghosh" onerror="this.src='https://customer-assets.emergentagent.com/wingman/eb358bd2-9b79-4f1e-a1ab-99b2658eb5f7/attachments/70b5e084dace44d9a09df4971e0ad6c3_image.bin'">
         </div>
+        <h2 class="founder-name">Ishita Ghosh</h2>
+        <p class="founder-subtitle">Solo Founder & Systems Architect</p>
+        
+        <div class="story-box">
+            I was forged in discipline. World-Ranked in Karate. National Champion in Powerlifting. My body was my weapon.<br><br>
+            Then in 2024, it became my prison.<br><br>
+            23 days. Semi-comatose. My mother held my hand and taught me to brush my teeth again.<br><br>
+            Doctors said: 1,825 days. I said: watch me.<br><br>
+            365 days later, I graduated from Mumbai University and started building NARA.<br><br>
+            Not from research. From survival.<br><br>
+            The somatic protocols that rebuilt my nervous system are now inside this app.<br><br>
+            I made it for you. Because you deserve your 100th degree without first losing everything.
+        </div>
+
         <button class="btn-gold" onclick="S.show('beta-signup')">Begin Journey</button>
     </div>
 </div>
 
+<!-- 2. BETA SIGNUP -->
 <div id="beta-signup" class="screen">
     <div class="screen-pad">
         <h2 class="text-gold text-2xl mb-8 uppercase text-center">Join the Council</h2>
         <div class="glass-card">
-            <input type="text" id="beta-name" placeholder="Full Name">
-            <input type="number" id="beta-whatsapp" placeholder="WhatsApp Number">
-            <input type="email" id="beta-email" placeholder="Email Address">
-            <label class="text-gold text-[10px] font-bold uppercase block mb-2">Mother Tongue:</label>
-            <select id="beta-lang">
-                <option value="en-US">English</option>
+            <input type="text" id="u-name" placeholder="Full Name">
+            <input type="number" id="u-phone" placeholder="WhatsApp Number">
+            <label class="text-gold text-[10px] font-bold uppercase block mb-2">Mother Tongue</label>
+            <select id="u-lang">
+                <option value="en-IN">English</option>
                 <option value="hi-IN">Hinglish</option>
-                <option value="bn-BD">Banglish</option>
+                <option value="bn-IN">Banglish</option>
             </select>
-            <button onclick="S.claimSpot()" class="btn-gold mt-4">Claim My Spot</button>
+            <button class="btn-gold mt-4" style="width:100%; margin: 20px 0 0;" onclick="S.claimSpot()">Claim My Spot</button>
         </div>
     </div>
 </div>
 
-<div id="landing" class="screen">
+<!-- 3. MISSION ENTRY -->
+<div id="mission-entry" class="screen">
     <div class="screen-pad flex flex-col items-center justify-center min-h-full text-center">
         <h1 class="text-6xl text-gold mb-2">NARA</h1>
-        <p class="text-gray-400 tracking-[0.3em] uppercase text-[10px] mb-12">Shift Your Frequency</p>
-        <button class="btn-gold max-w-xs" onclick="S.startQuiz()">Begin Assessment</button>
+        <p class="text-gray-400 tracking-[0.4em] uppercase text-[10px] mb-12">The Body Realm</p>
+        <button class="btn-gold" onclick="S.startQuiz()">Begin Assessment</button>
     </div>
 </div>
 
-<div id="quiz" class="screen">
+<!-- 4. QUIZ -->
+<div id="quiz-screen" class="screen">
     <div class="screen-pad">
-        <div class="progress-bar-bg"><div id="quiz-progress" class="progress-bar-fill" style="width: 10%"></div></div>
-        <div class="quiz-container">
-            <div id="qCard" class="quiz-card-wrapper slide-active">
-                <div class="glass-card min-h-[380px] flex flex-col items-center justify-center text-center">
-                    <div class="text-gold text-[10px] font-bold mb-4 uppercase" id="qNum">Card 1 of 10</div>
-                    <div class="text-xl font-bold mb-8 leading-tight" id="qQ"></div>
-                    <div class="space-y-3 w-full" id="qOpts"></div>
-                </div>
+        <div class="progress-bar-container"><div id="q-progress" class="progress-fill"></div></div>
+        <div id="q-card" class="quiz-card">
+            <div id="q-content">
+                <div class="text-gold text-[10px] font-bold mb-4 uppercase" id="q-num">Card 1 of 10</div>
+                <div class="q-text" id="q-title"></div>
+                <div id="q-options" class="space-y-3"></div>
             </div>
         </div>
     </div>
 </div>
 
-<div id="quiz-result" class="screen">
+<!-- 5. MISSION STEPS -->
+<div id="mission-screen" class="screen">
     <div class="screen-pad text-center">
-        <h2 class="text-gold text-3xl mb-8 uppercase tracking-widest" id="resProfile"></h2>
-        <div id="resOrb" class="glowing-orb mx-auto"></div>
-        <div class="glass-card mb-10"><p class="text-white text-sm leading-relaxed" id="resDesc"></p></div>
-        <button class="btn-gold" onclick="S.show('wisdom-screen')">Understand Logic</button>
-    </div>
-</div>
-
-<div id="wisdom-screen" class="screen">
-    <div class="screen-pad text-center">
-        <h2 class="text-white text-3xl mb-8">The Iceberg Reality</h2>
-        <div class="iceberg-wrap">
-            <div class="ice-layer mental">5% MENTAL</div>
-            <div class="ice-layer emotional">25% EMOTIONAL</div>
-            <div class="ice-layer somatic" style="padding: 30px 12px; border-width: 2px;">70% SOMATIC (BODY)</div>
-        </div>
-        <button class="btn-gold" onclick="S.goMission()">Start Mission</button>
-    </div>
-</div>
-
-<div id="mission" class="screen">
-    <div class="screen-pad text-center">
-        <div id="step-1" class="space-y-8">
-            <h3 class="text-gold uppercase text-xs tracking-widest">Step 1: Safety Signal</h3>
-            <div class="text-white font-bold" id="breath-cycle-ui">CYCLE 0 OF 4</div>
-            <div class="orb-outer">
-                <div class="orb-inner" id="bOrb" onclick="S.toggleBreathing()">TAP TO START</div>
+        <!-- Step 1: Breath -->
+        <div id="step-1" class="mission-step">
+            <h3 class="text-gold uppercase text-xs tracking-widest mb-2">Step 1: Return with Safety</h3>
+            <div class="orb-container">
+                <div class="orb" id="breathOrb" onclick="S.toggleBreathing()">
+                    <span class="orb-text" id="orbText">TAP TO START</span>
+                </div>
+                <div class="cycle-count">Cycle <span id="cycleNum">0</span> of 4</div>
             </div>
             <div class="text-gold font-black text-2xl h-8" id="breath-timer"></div>
-            <button id="breath-next-btn" class="btn-gold hidden" onclick="S.nextStep()">Next Step</button>
+            <button id="breath-next" class="btn-gold hidden" onclick="S.nextStep()">Next Step</button>
         </div>
-        <div id="step-2" class="hidden space-y-6">
-            <h3 class="text-gold uppercase text-xs tracking-widest">Step 2: Complete the Cycle</h3>
-            <div class="release-btns">
-                <button class="release-btn" onclick="S.release('SHAKE')">SHAKE</button>
-                <button class="release-btn" onclick="S.release('CRY')">CRY</button>
-                <button class="release-btn" onclick="S.release('RAGE')">RAGE</button>
-                <button class="release-btn" onclick="S.release('STOMP')">STOMP</button>
+
+        <!-- Step 2: Release -->
+        <div id="step-2" class="mission-step hidden">
+            <h3 class="text-gold uppercase text-xs tracking-widest mb-1">Complete the Cycle</h3>
+            <p class="text-gray-400 text-[10px] uppercase tracking-widest mb-6">Your nervous system needs to move</p>
+            <p class="text-cream text-sm leading-relaxed px-5 mb-8 opacity-80">
+                Stress is stored in the body as incomplete cycles. You must physically move to discharge it. Pick what your body needs right now.
+            </p>
+            <div class="release-grid">
+                <div class="release-card" onclick="S.release('SHAKE')">
+                    <div class="emotion-label">Anxiety</div>
+                    <div class="action-label">SHAKE</div>
+                </div>
+                <div class="release-card" onclick="S.release('CRY')">
+                    <div class="emotion-label">Grief</div>
+                    <div class="action-label">CRY</div>
+                </div>
+                <div class="release-card" onclick="S.release('RAGE')">
+                    <div class="emotion-label">Anger</div>
+                    <div class="action-label">RAGE</div>
+                </div>
+                <div class="release-card" onclick="S.release('STOMP')">
+                    <div class="emotion-label">Numbness</div>
+                    <div class="action-label">STOMP</div>
+                </div>
             </div>
-            <div id="release-timer-ui" class="hidden py-8">
-                <div class="text-gold text-6xl font-black mb-2" id="release-time">60</div>
-                <div class="text-white text-xs italic px-6" id="release-instruction"></div>
+            <div id="rel-timer-ui" class="hidden py-8">
+                <div class="text-gold text-6xl font-black mb-2" id="rel-time">60</div>
+                <button id="rel-next" class="btn-gold opacity-50 pointer-events-none" onclick="S.nextStep()">Wait...</button>
             </div>
-            <button class="btn-gold mt-10" id="release-next" disabled onclick="S.nextStep()">Next Step</button>
         </div>
-        <div id="step-3" class="hidden">
-            <h3 class="text-gold uppercase text-xs tracking-widest mb-6">Step 3: Update Body Rules</h3>
-            <textarea id="new-decision" class="recode-input" placeholder="I am safe to be seen..."></textarea>
+
+        <!-- Step 3: Re-Code -->
+        <div id="step-3" class="mission-step hidden">
+            <h3 class="text-gold uppercase text-xs tracking-widest mb-6">Update Your Body's Rules</h3>
+            <p class="text-cream text-xs text-left px-5 mb-6 leading-relaxed opacity-70">
+                While your nervous system is regulated, it is ready to accept new instructions. Write one belief that feels TRUE in your body right now. Not an affirmation. A somatic truth.
+            </p>
+            <textarea id="recode-input" class="recode-field" placeholder="I am safe to be seen..."></textarea>
             <button class="btn-gold" onclick="S.finishMission()">Encode Decision</button>
         </div>
     </div>
 </div>
 
-<div id="tracker" class="screen screen-pad">
-    <div class="text-center mb-12">
-        <div class="progress-ring-container">
-            <svg width="220" height="220">
-                <circle class="progress-ring-circle" stroke="rgba(212,175,55,0.1)" stroke-width="12" fill="transparent" r="90" cx="110" cy="110"/>
-                <circle id="progress-ring-fill" class="progress-ring-circle" stroke="#D4AF37" stroke-width="12" stroke-linecap="round" fill="transparent" r="90" cx="110" cy="110" stroke-dasharray="565.48" stroke-dashoffset="565.48"/>
-            </svg>
-            <div class="degrees-num" id="radarScore">1</div>
-        </div>
-        <p class="text-gold text-[10px] font-bold uppercase mt-4 tracking-widest">Degrees of Heat</p>
-    </div>
-    <div class="glass-card mb-8">
-        <div class="flex justify-between items-center mb-4">
-            <span class="text-white text-xs font-bold">90-Day Quest</span>
-            <span class="text-gold text-xs font-bold" id="streak-text">Day 1</span>
-        </div>
-        <div class="bg-navy-light h-2 rounded-full overflow-hidden"><div id="progress-bar-main" class="h-full bg-gold" style="width: 1%"></div></div>
-    </div>
-    <div id="decision-box" class="glass-card border-gold bg-gold/10 hidden">
-        <h4 class="text-gold text-[10px] font-black uppercase mb-2">Last Encoded Rule</h4>
-        <p id="saved-decision" class="text-white text-sm italic"></p>
-    </div>
-    <button class="btn-gold mt-12" onclick="S.toggleFeedback()">Tell the Truth</button>
-</div>
-
+<!-- 6. COMPLETION -->
 <div id="completion-screen" class="screen">
-    <div class="screen-pad flex flex-col items-center justify-center min-h-full text-center relative overflow-hidden" id="particle-container">
-        <div class="w-32 h-32 rounded-full border-4 border-gold flex items-center justify-center mb-8"><span class="text-6xl font-black text-gold">1</span></div>
-        <h2 class="text-4xl font-bold text-white mb-2">1 Degree Gained</h2>
-        <p class="text-gold text-lg mb-12">89 degrees remain. Return tomorrow.</p>
-        <button class="btn-gold max-w-xs" onclick="S.nav('tracker')">View Dashboard</button>
+    <div class="screen-pad text-center">
+        <div class="degree-num">1</div>
+        <div class="degree-label">DEGREE GAINED</div>
+        <p class="remain-text">89 degrees remain.</p>
+        <p class="water-logic">Water does not become steam at 99 degrees. Return tomorrow for degree 2.</p>
+        <button class="btn-gold" onclick="S.showTruth()">Tell the Truth</button>
+        <button class="btn-gold" style="background:transparent; border:1px solid #D4AF37 !important; color:#D4AF37 !important;" onclick="S.nav('tracker')">View Progress</button>
     </div>
 </div>
 
-<div id="inner-circle" class="screen">
+<!-- 7. TRACKER -->
+<div id="tracker-screen" class="screen">
+    <div class="screen-pad text-center">
+        <h3 class="text-gold uppercase text-xs tracking-widest mb-10">Your Progress</h3>
+        <div class="degree-num" id="dash-degree">1</div>
+        <div class="degree-label">Current Degree</div>
+        
+        <div class="glass-card text-left mb-8">
+            <h4 class="text-gold text-[10px] uppercase tracking-widest mb-2">Active Biological Rule</h4>
+            <p id="dash-rule" class="text-cream italic text-sm font-medium">"No rule encoded yet."</p>
+        </div>
+
+        <div class="glass-card text-left">
+            <h4 class="text-gold text-[10px] uppercase tracking-widest mb-2">90-Day Trajectory</h4>
+            <div class="progress-bar-container" style="margin:10px 0;"><div id="streak-progress" class="progress-fill" style="width:1%"></div></div>
+            <p class="text-gray-500 text-[10px] text-right">1 / 90 Days</p>
+        </div>
+    </div>
+</div>
+
+<!-- 8. THE CIRCLE -->
+<div id="circle-screen" class="screen">
     <div class="screen-pad flex flex-col items-center justify-center min-h-full text-center">
         <h2 class="text-gold text-4xl mb-4">The Council</h2>
-        <button class="btn-gold" onclick="S.openWhatsApp()">Join WhatsApp Council</button>
+        <p class="text-cream text-lg mb-12 opacity-60">Connect with the Top 1%.</p>
+        <button class="btn-gold" onclick="window.open('https://chat.whatsapp.com/F9zo04ZCnpZ9B8iOUgshGq')">Join WhatsApp Council</button>
     </div>
 </div>
 
-<div id="feedback-modal" class="modal-overlay"><div class="modal-content"><h3 class="text-gold text-xl font-bold mb-2 text-white">Tell the Truth</h3><textarea id="feedback-text" class="w-full h-32 p-4 rounded-xl text-black mb-6" placeholder="Be brutally honest..." style="background: white !important;"></textarea><div class="grid grid-cols-2 gap-4"><button onclick="S.toggleFeedback()" class="p-4 rounded-xl border border-white/10 text-white font-bold">Cancel</button><button onclick="S.submitFeedback()" class="btn-gold rounded-xl font-bold">Submit</button></div></div></div>
-
-<nav class="bottom-nav" id="bnav">
-    <button class="nav-item font-bold" onclick="S.nav('mission')">MISSION</button>
-    <button class="nav-item font-bold" onclick="S.nav('tracker')">TRACKER</button>
-    <button class="nav-item font-bold" onclick="S.show('inner-circle')">THE CIRCLE</button>
+<nav id="bnav" class="bottom-nav">
+    <button class="nav-tab" id="tab-mission" onclick="S.nav('mission-entry')">MISSION</button>
+    <button class="nav-tab" id="tab-tracker" onclick="S.nav('tracker-screen')">TRACKER</button>
+    <button class="nav-tab" id="tab-circle" onclick="S.nav('circle-screen')">THE CIRCLE</button>
 </nav>
 
 <script>
 const S = (() => {
-    let st = {
-        currentDay: parseInt(localStorage.getItem('nara_streak') || '1'),
-        missionStep: 1, answers: [], breathCycles: 0, voiceGuideEnabled: false, lang: 'en-US',
-        encodedDecision: localStorage.getItem('nara_decision') || ""
+    let state = {
+        day: parseInt(localStorage.getItem('nara_day') || '1'),
+        voice: false,
+        lang: 'en-IN',
+        decision: localStorage.getItem('nara_rule') || "No rule encoded yet.",
+        cycles: 0,
+        isBreathing: false,
+        qIdx: 0
     };
+
     const cards = [
-        { q: "When someone criticizes you, you feel...", opts: ["Numb", "Rage", "Shame", "Invisible"] },
-        { q: "In the morning, your body feels...", opts: ["Heavy", "Wired", "Numb", "Grounded"] },
-        { q: "When conflict arises, you...", opts: ["Shut down", "Explode", "Dissociate", "Stay regulated"] },
-        { q: "Your relationship with rest is...", opts: ["Unsafe", "Guilty crash", "Never restored", "Deeply recharging"] },
-        { q: "In close relationships, you tend to...", opts: ["Push away", "Merge", "Keep a wall", "Healthy boundaries"] },
-        { q: "Your inner critic sounds like...", opts: ["A drill sergeant", "Disappointed parent", "Body tension", "A coach"] },
-        { q: "When thinking of the future, you feel...", opts: ["Dread", "Anxiety", "Blank", "Excitement"] },
-        { q: "Your breathing right now is...", opts: ["Shallow", "Holding", "Quick", "Deep"] },
-        { q: "Your energy at 3 PM...", opts: ["Crashes", "Gets anxious", "Stays flat", "Flows steadily"] },
-        { q: "When asked 'How are you?', you say...", opts: ["'Fine'", "I don't know", "Minimized real answer", "Accurate state"] }
+        { q: "When someone criticizes you, you feel?", o: ["Numb", "Rage", "Shame", "Invisible"] },
+        { q: "In the morning, your body feels?", o: ["Heavy", "Wired", "Numb", "Grounded"] },
+        { q: "When conflict arises, you?", o: ["Shut down", "Explode", "Dissociate", "Stay regulated"] },
+        { q: "Your relationship with rest is?", o: ["Unsafe", "Guilty crash", "Never restored", "Deeply recharging"] },
+        { q: "In close relationships, you tend to?", o: ["Push away", "Merge", "Keep a wall", "Healthy boundaries"] },
+        { q: "Your inner critic sounds like?", o: ["A drill sergeant", "Disappointed parent", "Body tension", "A coach"] },
+        { q: "When thinking of the future, you feel?", o: ["Dread", "Anxiety", "Blank", "Excitement"] },
+        { q: "Your breathing right now is?", o: ["Shallow", "Holding", "Quick", "Deep"] },
+        { q: "Your energy at 3 PM?", o: ["Crashes", "Gets anxious", "Stays flat", "Flows steadily"] },
+        { q: "When asked 'How are you?', you say?", o: ["'Fine'", "I don't know", "Minimized real answer", "Accurate state"] }
     ];
-    function init() {
-        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-        document.getElementById('bnav').classList.add(isIOS ? 'nav-ios' : 'nav-android');
-        setTimeout(() => { document.getElementById('loading-screen').style.opacity = '0'; setTimeout(() => document.getElementById('loading-screen').style.display = 'none', 500); }, 2000);
+
+    function speak(text) {
+        if(!state.voice) return;
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.rate = 0.85; u.pitch = 1.0; u.lang = state.lang;
+        window.speechSynthesis.speak(u);
     }
-    function speak(text) { if(!st.voiceGuideEnabled) return; window.speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(text); u.lang = st.lang; u.rate = 0.95; window.speechSynthesis.speak(u); }
-    function toggleVoiceGuide() { st.voiceGuideEnabled = !st.voiceGuideEnabled; document.getElementById('voice-guide-toggle').innerText = st.voiceGuideEnabled ? "VOICE GUIDE: ON" : "VOICE GUIDE: OFF"; if(st.voiceGuideEnabled) speak("NARA Activated."); }
+
+    function toggleVoice() {
+        state.voice = !state.voice;
+        document.getElementById('voice-guide-toggle').innerText = state.voice ? "VOICE GUIDE: ON" : "VOICE GUIDE: OFF";
+        if(state.voice) {
+            speak("NARA Activated.");
+            if(document.getElementById('founder-screen').classList.contains('active')) {
+                speak("My name is Ishita Ghosh. I was an elite athlete. A World-Ranked Karate champion and National Powerlifting title holder. In early 2024, everything stopped. 23 days in a semi-coma state. I could not speak. I could not eat alone. My mother taught me to brush my teeth again like a small child. Doctors gave me 1825 days to recover. I beat it in 365. The tool was somatic science. The system I discovered to rebuild myself became NARA. I built this so you can find your 100th degree without first losing everything. Welcome to the Body Realm.");
+            }
+        }
+    }
+
     function show(id) {
         document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
         document.getElementById(id).classList.add('active');
-        if (id === 'tracker') {
-            const score = st.currentDay;
-            document.getElementById('radarScore').innerText = score;
-            document.getElementById('streak-text').innerText = `Day ${score}`;
-            document.getElementById('progress-bar-main').style.width = `${(score/90)*100}%`;
-            const circ = 2 * Math.PI * 90;
-            const offset = circ - (score / 90) * circ;
-            document.getElementById('progress-ring-fill').style.strokeDashoffset = offset;
-            if (st.encodedDecision) { document.getElementById('decision-box').classList.remove('hidden'); document.getElementById('saved-decision').innerText = `"${st.encodedDecision}"`; }
+        if(id === 'tracker-screen') {
+            document.getElementById('dash-degree').innerText = state.day;
+            document.getElementById('dash-rule').innerText = `"${state.decision}"`;
+            document.getElementById('streak-progress').style.width = `${(state.day/90)*100}%`;
         }
-        if (id === 'completion-screen') createParticles();
     }
-    function toggleStory() { const story = document.getElementById('embedded-story'); story.classList.toggle('hidden'); if(!story.classList.contains('hidden')) speak("My name is Ishita. I beat a five year prognosis in one year."); }
-    function claimSpot() {
-        const n = document.getElementById('beta-name').value;
-        const p = document.getElementById('beta-whatsapp').value;
-        const e = document.getElementById('beta-email').value;
-        if(!n || !p || !e) return alert("Fill all fields.");
-        st.lang = document.getElementById('beta-lang').value;
-        document.getElementById('signup-content').classList.add('hidden');
-        document.getElementById('signup-success').classList.remove('hidden');
-        setTimeout(() => show('landing'), 2000);
-    }
-    function startQuiz() { st.answers = []; renderCard(0); show('quiz'); }
-    function renderCard(idx) {
-        const c = cards[idx];
-        const wrapper = document.getElementById('qCard');
-        wrapper.classList.remove('slide-active');
-        wrapper.classList.add('slide-left');
-        setTimeout(() => {
-            document.getElementById('qNum').innerText = `Card ${idx + 1} of 10`;
-            document.getElementById('qQ').innerText = c.q;
-            document.getElementById('quiz-progress').style.width = `${((idx + 1) / 10) * 100}%`;
-            const opts = document.getElementById('qOpts');
-            opts.innerHTML = '';
-            c.opts.forEach((o, i) => {
-                const b = document.createElement('button');
-                b.className = 'quiz-opt'; b.innerText = o;
-                b.onclick = () => { 
-                    st.answers.push(i); 
-                    if (idx + 1 < 10) renderCard(idx + 1); 
-                    else finishQuiz(); 
-                };
-                opts.appendChild(b);
-            });
-            wrapper.classList.remove('slide-left');
-            wrapper.classList.add('slide-right');
-            setTimeout(() => { wrapper.classList.remove('slide-right'); wrapper.classList.add('slide-active'); }, 50);
-        }, 300);
-        speak(c.q);
-    }
-    function finishQuiz() {
-        const counts = [0,0,0,0];
-        st.answers.forEach(a => counts[a]++);
-        const most = counts.indexOf(Math.max(...counts));
-        const profiles = [
-            { n: "SAFETY SEEKER", c: "red", t: "Your system broadcasts: I am not safe." },
-            { n: "INVISIBLE PROTECTOR", c: "red-orange", t: "Your system broadcasts: Being seen is dangerous." },
-            { n: "LOVE AVOIDER", c: "orange", t: "Your system broadcasts: Love leads to pain." },
-            { n: "ABUNDANCE BLOCKER", c: "yellow-red", t: "Biological ceiling detected." }
-        ];
-        document.getElementById('resProfile').innerText = profiles[most].n;
-        document.getElementById('resOrb').className = 'glowing-orb mx-auto ' + profiles[most].c;
-        document.getElementById('resDesc').innerText = profiles[most].t;
-        show('quiz-result');
-    }
-    function goMission() { document.getElementById('bnav').classList.add('visible'); nav('mission'); }
+
     function nav(id) {
-        if(id === 'mission') {
-            st.missionStep = 1;
-            document.getElementById('step-1').classList.remove('hidden');
-            document.getElementById('step-2').classList.add('hidden');
-            document.getElementById('step-3').classList.add('hidden');
-        }
         show(id);
+        document.getElementById('bnav').classList.add('visible');
+        document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+        if(id === 'mission-entry') document.getElementById('tab-mission').classList.add('active');
+        if(id === 'tracker-screen') document.getElementById('tab-tracker').classList.add('active');
+        if(id === 'circle-screen') document.getElementById('tab-circle').classList.add('active');
     }
-    function nextStep() { if(st.missionStep === 1) stopBreathing(); st.missionStep++; document.getElementById('step-1').classList.add('hidden'); document.getElementById('step-2').classList.add('hidden'); document.getElementById('step-3').classList.add('hidden'); document.getElementById('step-' + st.missionStep).classList.remove('hidden'); }
-    let bInt; let isB = false;
-    function toggleBreathing() { if(isB) stopBreathing(); else startBreathing(); }
-    function stopBreathing() { isB = false; clearInterval(bInt); const orb = document.getElementById('bOrb'); orb.style.background = 'radial-gradient(circle at 40% 40%,var(--gold-light),var(--gold))'; orb.style.width = '120px'; orb.style.height = '120px'; document.getElementById('bText').innerText = "TAP TO START"; document.getElementById('breath-timer').innerText = ""; }
-    function startBreathing() {
-        isB = true; const orb = document.getElementById('bOrb'); const txt = document.getElementById('bText'); const timer = document.getElementById('breath-timer'); const countUi = document.getElementById('breath-cycle-ui'); let phase = 0; st.breathCycles = 0;
-        const runPhase = (duration, label, color, next) => {
-            let left = duration; txt.innerText = label; orb.style.background = color;
-            if(label === "INHALE") { orb.style.width = '200px'; orb.style.height = '200px'; orb.style.transition = 'all 4s linear'; }
-            if(label === "EXHALE") { orb.style.width = '100px'; orb.style.height = '100px'; orb.style.transition = 'all 8s linear'; }
-            if(label === "HOLD") { orb.style.transition = 'none'; }
-            timer.innerText = left; speak(label);
-            const pInt = setInterval(() => { left--; if(left >= 0) timer.innerText = left; if(left <= 0) { clearInterval(pInt); next(); } }, 1000); bInt = pInt;
-        };
-        const cycle = () => { if(!isB) return; runPhase(4, "INHALE", "var(--gold)", () => { runPhase(7, "HOLD", "#FFFFFF", () => { runPhase(8, "EXHALE", "#ADD8E6", () => { st.breathCycles++; countUi.innerText = `CYCLE ${st.breathCycles} OF 4`; if(st.breathCycles >= 4) { stopBreathing(); document.getElementById('breath-next-btn').classList.remove('hidden'); speak("Complete. Tap Next."); } else { cycle(); } }); }); }); };
-        cycle();
+
+    function claimSpot() {
+        const n = document.getElementById('u-name').value;
+        if(!n) return alert("Enter your name.");
+        state.lang = document.getElementById('u-lang').value;
+        show('mission-entry');
     }
-    function release(type) { document.getElementById('release-timer-ui').classList.remove('hidden'); let count = 60; const timer = document.getElementById('release-time'); const instr = document.getElementById('release-instruction'); const map = { SHAKE: "Anxiety release.", CRY: "Heaviness release.", RAGE: "Anger release.", STOMP: "Powerlessness release." }; instr.innerText = map[type]; const si = setInterval(() => { count--; timer.innerText = count; if(count <= 0) { clearInterval(si); document.getElementById('release-next').disabled = false; } }, 1000); }
-    function finishMission() { const val = document.getElementById('new-decision').value; if(!val) return alert("Write your rule."); st.encodedDecision = val; localStorage.setItem('nara_decision', val); show('completion-screen'); }
-    function closeSuccess() { st.currentDay++; localStorage.setItem('nara_streak', st.currentDay); nav('tracker'); }
-    function createParticles() {
-        const container = document.getElementById('particle-container');
-        for(let i=0; i<30; i++) {
-            const p = document.createElement('div'); p.className = 'particle';
-            const tx = (Math.random() - 0.5) * 400; const ty = (Math.random() - 0.5) * 400;
-            p.style.setProperty('--tx', tx + 'px'); p.style.setProperty('--ty', ty + 'px');
-            p.style.left = '50%'; p.style.top = '50%';
-            p.style.animation = `burst 1s ease-out forwards`;
-            container.appendChild(p); setTimeout(() => p.remove(), 1000);
+
+    function startQuiz() { state.qIdx = 0; renderQ(); show('quiz-screen'); }
+    function renderQ() {
+        const c = cards[state.qIdx];
+        const el = document.getElementById('q-card');
+        el.style.opacity = 0;
+        setTimeout(() => {
+            document.getElementById('q-num').innerText = `Card ${state.qIdx+1} of 10`;
+            document.getElementById('q-title').innerText = c.q;
+            document.getElementById('q-progress').style.width = `${((state.qIdx+1)/10)*100}%`;
+            const box = document.getElementById('q-options');
+            box.innerHTML = '';
+            c.o.forEach(opt => {
+                const b = document.createElement('button');
+                b.className = 'opt-btn'; b.innerText = opt;
+                b.onclick = () => { if(state.qIdx < 9) { state.qIdx++; renderQ(); } else { nav('mission-entry'); } };
+                box.appendChild(b);
+            });
+            el.style.opacity = 1;
+            speak(c.q);
+        }, 300);
+    }
+
+    let bInt; 
+    function toggleBreathing() {
+        if(state.isBreathing) {
+            state.isBreathing = false; clearInterval(bInt);
+            document.getElementById('orbText').innerText = "TAP TO START";
+            document.getElementById('breathOrb').style.transform = "scale(1)";
+        } else {
+            state.isBreathing = true; state.cycles = 0; runCycle();
         }
     }
-    function openWhatsApp() { window.open('https://wa.me/918369834310'); }
-    function toggleFeedback() { document.getElementById('feedback-modal').style.display = 'flex'; }
-    function submitFeedback() { document.getElementById('feedback-modal').style.display = 'none'; show('inner-circle'); }
-    function closeMessage() { document.getElementById('message-modal').style.display = 'none'; }
-    init();
-    return { show, toggleStory, claimSpot, startQuiz, goMission, nav, nextStep, toggleBreathing, release, finishMission, closeSuccess, toggleVoiceGuide, openWhatsApp, toggleFeedback, submitFeedback, closeMessage };
+
+    function runCycle() {
+        if(!state.isBreathing) return;
+        const orb = document.getElementById('breathOrb');
+        const txt = document.getElementById('orbText');
+        const timer = document.getElementById('breath-timer');
+        
+        // INHALE
+        txt.innerText = "INHALE"; orb.style.transition = "transform 4s linear"; orb.style.transform = "scale(1.4)"; orb.style.borderColor = "#D4AF37";
+        let c = 4; timer.innerText = c; speak("Inhale");
+        let i = setInterval(() => { c--; if(c>=0) timer.innerText = c; if(c<=0) {
+            clearInterval(i);
+            // HOLD
+            txt.innerText = "HOLD"; orb.style.transition = "none"; orb.style.borderColor = "#FFFFFF";
+            let h = 7; timer.innerText = h; speak("Hold");
+            let j = setInterval(() => { h--; if(h>=0) timer.innerText = h; if(h<=0) {
+                clearInterval(j);
+                // EXHALE
+                txt.innerText = "EXHALE"; orb.style.transition = "transform 8s linear"; orb.style.transform = "scale(1)"; orb.style.borderColor = "#C41E3A";
+                let e = 8; timer.innerText = e; speak("Exhale");
+                let k = setInterval(() => { e--; if(e>=0) timer.innerText = e; if(e<=0) {
+                    clearInterval(k); state.cycles++; document.getElementById('cycleNum').innerText = state.cycles;
+                    if(state.cycles >= 4) {
+                        state.isBreathing = false; txt.innerText = "COMPLETE";
+                        document.getElementById('breath-next').classList.remove('hidden');
+                        speak("Step 1 Complete");
+                    } else runCycle();
+                } }, 1000);
+            } }, 1000);
+        } }, 1000);
+        bInt = i;
+    }
+
+    function release(type) {
+        document.getElementById('rel-timer-ui').classList.remove('hidden');
+        let c = 60; const timer = document.getElementById('rel-time'); const btn = document.getElementById('rel-next');
+        const instr = document.getElementById('release-instruction');
+        const msgs = { SHAKE: "Vibrate every limb. Release the cortisol.", CRY: "Let the water flow. It is a chemical reset.", RAGE: "Growl. Tension must leave the jaw and core.", STOMP: "Ground yourself. Reclaim the earth beneath you." };
+        instr.innerText = msgs[type]; speak("Starting release");
+        let i = setInterval(() => { c--; timer.innerText = c; if(c<=0) { clearInterval(i); btn.innerText = "Next Step"; btn.classList.remove('opacity-50', 'pointer-events-none'); document.getElementById('release-next').disabled = false; } }, 1000);
+    }
+
+    function nextStep() {
+        document.querySelectorAll('.mission-step').forEach(s => s.classList.add('hidden'));
+        state.missionStep++;
+        document.getElementById(`step-${state.missionStep}`).classList.remove('hidden');
+    }
+
+    function finishMission() {
+        const val = document.getElementById('recode-input').value;
+        if(!val) return alert("Write your rule.");
+        state.decision = val; localStorage.setItem('nara_rule', val);
+        show('completion-screen');
+    }
+
+    function showTruth() { document.getElementById('truth-modal').classList.add('active'); }
+    function closeTruth() { document.getElementById('truth-modal').classList.remove('active'); }
+    function submitTruth() { closeTruth(); nav('tracker-screen'); state.day++; localStorage.setItem('nara_day', state.day); }
+
+    return { toggleVoice, show, nav, claimSpot, startQuiz, toggleBreathing, release, nextStep, finishMission, showTruth, closeTruth, submitTruth };
 })();
 </script>
 </body>
