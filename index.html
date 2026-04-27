@@ -1,403 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<title>NARA by Ishita Ghosh | Somatic Performance Protocol</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>NARA by Ishita Ghosh | Somatic Performance Protocol</title>
+    
+    <meta property="og:title" content="NARA — Somatic Performance Protocol">
+    <meta property="og:description" content="Built by Ishita Ghosh. Former World-Ranker in Karate and National Champion in Powerlifting. I beat a 5-year medical prognosis in 365 days.">
+    <meta property="og:image" content="https://ishitaedu8.github.io/nara/assets/ishita.jpg">
+    <meta name="description" content="NARA is a 90-day somatic nervous system protocol built by Ishita Ghosh — former World-Ranked Karate athlete and National Powerlifting Champion who recovered from a neuropsychiatric condition in 12 months against a 5-year prognosis.">
 
-<meta property="og:title" content="NARA — Somatic Performance Protocol">
-<meta property="og:description" content="Built by Ishita Ghosh. Former World-Ranked Athlete. Neuropsychiatric miracle survivor. This is the system I used to recover in 365 days instead of 1,825.">
-<meta property="og:image" content="https://customer-assets.emergentagent.com/wingman/eb358bd2-9b79-4f1e-a1ab-99b2658eb5f7/attachments/70b5e084dace44d9a09df4971e0ad6c3_image.bin">
-<meta name="description" content="NARA is a 90-day somatic nervous system protocol built by Ishita Ghosh — former World-Ranked Karate athlete and National Powerlifting Champion who recovered from a neuropsychiatric condition in 12 months against a 5-year prognosis.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --navy: #0A0E1F;
+            --gold: #D4AF37;
+            --gold-dark: #B8960C;
+            --white: #F5F0E8;
+        }
 
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,700;1,400&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --navy:#0A0E1F;--navy-light:#121833;--navy-mid:#1a2040;
-  --gold:#D4AF37;--gold-light:#F0D060;--gold-dim:rgba(212,175,55,0.15);
-  --crimson:#C41E3A;--crimson-light:#E8304A;
-  --white:#F5F0E8;--gray:#8A8FA3;--gray-dark:#3A3F55;
-  --font:'Space Grotesk', sans-serif;
-}
-html,body{
-  height:100%;width:100%;overflow-x:hidden;
-  font-family:var(--font);background:var(--navy);color:var(--white);
-  -webkit-font-smoothing:antialiased;
-}
-body{display:flex;flex-direction:column;position:relative; min-height: 100vh;}
-button, a.btn-gold{font-family:var(--font);cursor:pointer;border:none;outline:none;background:none;color:inherit;text-decoration:none;display:inline-block;}
+        body {
+            background: var(--navy);
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
 
-.screen{
-  position:absolute;inset:0;display:none;flex-direction:column;
-  opacity:0;overflow-y:auto;overflow-x:hidden;
-  transition:opacity 0.4s ease;
-  z-index:1;
-  padding-bottom: 220px; 
-}
-.screen.active{display:flex;opacity:1;z-index:10}
-.screen-pad{padding:80px 20px 60px}
+        h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; }
 
-@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-@keyframes breatheOrb{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+        .screen {
+            position: absolute; inset: 0; display: none; flex-direction: column;
+            opacity: 0; transition: opacity 0.4s ease; padding-bottom: 120px;
+            overflow-y: auto;
+        }
+        .screen.active { display: flex; opacity: 1; z-index: 10; }
 
-.btn-gold{
-  background:linear-gradient(135deg,var(--gold),var(--gold-light)) !important;
-  color:var(--navy) !important; font-weight:900;font-size:18px;
-  padding:20px 32px;border-radius:20px;
-  box-shadow:0 8px 30px rgba(212,175,55,0.4);
-  transition:all 0.3s ease;letter-spacing:1px;
-  display:inline-block;text-align:center;
-  width: 100%; text-transform: uppercase;
-  margin-top: 20px;
-  border: none !important;
-}
-.btn-gold:active{transform:scale(0.98)}
-.btn-gold:disabled{opacity: 0.3 !important; cursor: not-allowed;}
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark)) !important;
+            color: var(--navy) !important;
+            font-weight: 700; padding: 18px 32px; border-radius: 50px;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+            width: 100%; text-transform: uppercase;
+            cursor: pointer; border: none !important; margin-top: 20px;
+        }
 
-.bottom-nav{
-  position:fixed;bottom:0;left:0;right:0;height:auto;
-  background:rgba(10,14,31,0.98);
-  backdrop-filter:blur(20px);border-top:1px solid rgba(212,175,55,0.2);
-  display:none;align-items:center;justify-content:space-around;
-  z-index:100;
-  padding-top: 15px;
-  padding-bottom: 60px;
-}
-@supports (padding-bottom: env(safe-area-inset-bottom)) {
-  .bottom-nav {
-    padding-bottom: calc(env(safe-area-inset-bottom) + 50px);
-  }
-}
-.bottom-nav.visible{display:flex}
-.nav-item{display:flex;flex-direction:column;align-items:center;gap:4px;opacity:0.45;font-size:10px;font-weight:600;}
-.nav-item.active{opacity:1;color:var(--gold)}
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 20px; backdrop-filter: blur(10px); padding: 24px;
+        }
 
-textarea, input, select {
-    background-color: #FFFFFF !important;
-    color: #000000 !important;
-    -webkit-text-fill-color: #000000 !important;
-    opacity: 1 !important;
-    caret-color: #000000 !important;
-    font-size: 16px !important;
-    font-weight: 600 !important;
-    border-radius: 20px !important;
-    padding: 16px !important;
-    outline: none !important;
-    width: 100% !important;
-    border: 2px solid var(--gold) !important;
-    margin-bottom: 20px !important;
-}
-textarea::placeholder, input::placeholder { color: #888888 !important; }
+        input, select, textarea {
+            background: #FFFFFF !important; color: #000000 !important;
+            -webkit-text-fill-color: #000000 !important;
+            padding: 16px !important; font-size: 16px !important;
+            border: 2px solid var(--gold) !important; border-radius: 12px !important;
+            width: 100%; margin-bottom: 16px; outline: none !important;
+        }
 
-.guide-box {
-    margin-top: 30px; background: rgba(255,255,255,0.05);
-    border: 1px dashed var(--gold); border-radius: 20px;
-    padding: 20px; text-align: left;
-}
-.guide-box h4 { color: var(--gold); font-size: 12px; font-weight: 900; margin-bottom: 8px; text-transform: uppercase; }
-.guide-box p { color: #8A8FA3; font-size: 13px; line-height: 1.5; }
+        .voice-control-btn {
+            position: fixed; top: 20px; right: 20px; z-index: 1000;
+            background: rgba(18, 24, 51, 0.9); border: 1.5px solid var(--gold);
+            color: var(--gold); padding: 8px 16px; border-radius: 30px; font-size: 11px;
+        }
 
-.voice-control-btn {
-    position: fixed; top: 20px; right: 20px; left: auto; z-index: 1000;
-    background: var(--navy-mid); border: 2px solid var(--gold);
-    color: var(--gold); font-weight: 900; padding: 10px 20px;
-    border-radius: 30px; font-size: 12px;
-}
+        .bottom-nav {
+            position: fixed; bottom: 0; left: 0; right: 0;
+            background: rgba(10, 14, 31, 0.98); border-top: 1px solid rgba(212, 175, 55, 0.2);
+            display: none; justify-content: space-around; padding: 20px 0 40px; z-index: 100;
+        }
+        .bottom-nav.visible { display: flex; }
 
-.breathing-orb-wrap{
-  width:220px;height:220px;border-radius:50%;
-  background:rgba(212,175,55,0.05);
-  display:flex;align-items:center;justify-content:center;
-  position:relative;margin:10px auto;
-  cursor: pointer;
-}
-.breathing-orb{
-  width:120px;height:120px;border-radius:50%;
-  background:radial-gradient(circle at 40% 40%,var(--gold-light),var(--gold));
-  display:flex;align-items:center;justify-content:center;
-  transition:all 0.1s linear;
-  box-shadow:0 0 60px rgba(212,175,55,0.5);
-}
-
-.release-btns{display:grid;grid-template-columns:1fr 1fr;gap:15px;width:100%;max-width:340px;margin:20px auto}
-.release-btn{padding:20px;border-radius:20px;border:2px solid var(--gold);font-weight:800;text-align:center;transition:all 0.2s ease; background: transparent; color: var(--gold); font-size: 14px;}
-.release-btn.active{background:var(--gold);color:var(--navy);box-shadow:0 0 30px rgba(212,175,55,0.4);}
-
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.95);backdrop-filter:blur(10px);z-index:200;display:none;align-items:center;justify-content:center;padding:20px}
-.modal-content{background:var(--navy-light);width:100%;max-width:400px;border:2px solid var(--gold);border-radius:32px;padding:40px;text-align:center}
-
-.iceberg-wrap { position: relative; width: 100%; max-width: 340px; margin: 30px auto; }
-.ice-layer { padding: 12px; border-radius: 12px; margin-bottom: 6px; border: 1px solid rgba(212,175,55,0.2); font-size: 12px; font-weight: 700; }
-.ice-layer.somatic { background: var(--navy-mid); border-color: var(--gold); }
-.ice-layer.emotional { background: var(--navy-light); }
-.ice-layer.mental { background: var(--navy); border-color: var(--gray-dark); }
-
-</style>
+        .orb-inner {
+            width: 120px; height: 120px; border-radius: 50%;
+            background: var(--gold); display: flex; align-items: center; justify-content: center;
+            font-weight: 900; color: var(--navy); transition: all 0.1s linear;
+        }
+    </style>
 </head>
 <body>
 
-<button id="voice-guide-toggle" class="voice-control-btn" onclick="S.toggleVoiceGuide()">VOICE GUIDE: OFF</button>
+<button id="voice-guide-toggle" class="voice-control-btn" onclick="S.toggleVoice()">VOICE GUIDE: OFF</button>
 
-<div id="opening-screen" class="screen active">
-  <div class="screen-pad">
-    <img src="https://customer-assets.emergentagent.com/wingman/eb358bd2-9b79-4f1e-a1ab-99b2658eb5f7/attachments/70b5e084dace44d9a09df4971e0ad6c3_image.bin" class="founder-photo" alt="Ishita Ghosh">
-    <h2 class="text-gold text-2xl font-bold mb-2 text-center">Ishita Ghosh</h2>
-    <p class="text-white text-sm mb-8 text-center uppercase tracking-widest">Solo Founder & Systems Architect</p>
-    <button class="btn-gold" onclick="S.toggleStory()">Read My Story</button>
-    <div id="embedded-story" class="story-container" style="display:none; text-align:left; font-size:16px; line-height:1.8; color:rgba(245,240,232,0.9); padding:40px 0; border-top:1px solid rgba(212,175,55,0.1); white-space:pre-line;">
-        My name is Ishita Ghosh. I was an elite athlete. Former World Ranker. National Champion. 
-
-        In early 2024, everything stopped. 23 days in a semi-coma state. Doctors gave me a 5-year (1,825 days) prognosis to recover. I beat it in 1 year.
-
-        NARA is the system I built so you can find your 100th degree too. Welcome to the Body Realm.
+<div id="opening" class="screen active">
+    <div class="p-10 text-center">
+        <img src="https://ishitaedu8.github.io/nara/assets/ishita.jpg" style="width:140px;height:140px;border-radius:50%;border:3px solid var(--gold);margin:0 auto 20px;object-fit:cover;">
+        <h2 class="text-2xl">Ishita Ghosh</h2>
+        <p class="text-gold text-sm mb-10">Solo Founder & Systems Architect</p>
+        <button class="btn-gold" onclick="S.show('signup')">Begin Journey</button>
     </div>
-    <div class="guide-box">
-        <h4>Architect's Guidance:</h4>
-        <p>Tap "Read My Story". Turn on the <b>Voice Guide</b> at the top left to hear me tell it.</p>
-    </div>
-    <button class="btn-gold mt-8" onclick="S.show('beta-signup')">Begin Journey</button>
-  </div>
 </div>
 
-<div id="beta-signup" class="screen">
-  <div class="screen-pad">
-    <h2 class="text-gold text-2xl font-bold mb-8 uppercase tracking-wider text-center">Join the Council</h2>
-    <div class="space-y-4 mb-6">
-        <input type="text" id="beta-name" placeholder="Full Name">
-        <input type="number" id="beta-whatsapp" placeholder="WhatsApp Number">
-        <input type="email" id="beta-email" placeholder="Email Address">
-        <label class="text-gold text-xs font-bold uppercase block mt-4">Mother Tongue:</label>
-        <select id="beta-lang">
-            <option value="en-US">English</option>
-            <option value="hi-IN">Hinglish</option>
-            <option value="bn-BD">Banglish</option>
-        </select>
+<div id="signup" class="screen">
+    <div class="p-8">
+        <h2 class="text-gold text-2xl mb-8 text-center">Join the Council</h2>
+        <div class="glass-card">
+            <input type="text" id="u-name" placeholder="Full Name">
+            <input type="number" id="u-phone" placeholder="WhatsApp Number">
+            <input type="email" id="u-email" placeholder="Email Address">
+            <select id="u-lang">
+                <option value="en-US">English</option>
+                <option value="hi-IN">Hinglish</option>
+                <option value="bn-BD">Banglish</option>
+            </select>
+            <button class="btn-gold" onclick="S.claim()">Claim My Spot</button>
+        </div>
     </div>
-    <button id="claim-btn" onclick="S.claimSpot()" class="btn-gold">CLAIM MY SPOT</button>
-    <div class="guide-box">
-        <h4>Architect's Guidance:</h4>
-        <p>Enter your details. NARA will speak to you in your preferred language.</p>
-    </div>
-  </div>
 </div>
 
 <div id="landing" class="screen">
-  <div class="screen-pad flex flex-col items-center justify-center min-h-full text-center">
-    <h1 class="serif text-5xl text-gold mb-4">NARA</h1>
-    <p class="text-gray-400 tracking-widest uppercase text-xs mb-12">Shift Your Frequency</p>
-    <button class="btn-gold" onclick="S.startQuiz()">Begin Assessment</button>
-  </div>
+    <div class="flex flex-col items-center justify-center min-h-full text-center p-10">
+        <h1 class="text-6xl text-gold mb-10">NARA</h1>
+        <button class="btn-gold" onclick="S.startQuiz()">Start Assessment</button>
+    </div>
 </div>
 
 <div id="quiz" class="screen">
-  <div class="screen-pad">
-    <div class="quiz-card mx-auto" id="qCard">
-      <div class="text-gold text-xs font-bold mb-4" id="qNum">CARD 1 OF 10</div>
-      <div class="text-xl font-bold mb-6" id="qQ"></div>
-      <div class="space-y-3 w-full" id="qOpts"></div>
-    </div>
-    <div class="guide-box">
-        <h4>Architect's Guidance:</h4>
-        <p>Answer from your gut. We are identifying your frequency.</p>
-    </div>
-  </div>
-</div>
-
-<div id="quiz-result" class="screen">
-  <div class="screen-pad text-center">
-    <h2 class="serif text-gold text-3xl mb-4 uppercase tracking-widest" id="resProfile"></h2>
-    <div id="resOrb" class="glowing-orb"></div>
-    <p class="text-white text-md mb-8 max-w-xs mx-auto leading-relaxed" id="resDesc"></p>
-    <button class="btn-gold" onclick="S.show('wisdom-screen')">Understand Frequency</button>
-  </div>
-</div>
-
-<div id="wisdom-screen" class="screen">
-    <div class="screen-pad text-center">
-        <h2 class="serif text-gold text-3xl mb-8">The Iceberg Reality</h2>
-        <div class="iceberg-wrap">
-            <div class="ice-layer mental">5% - MENTAL (THOUGHTS)</div>
-            <div class="ice-layer emotional">25% - EMOTIONAL (FEELINGS)</div>
-            <div class="ice-layer somatic">70% - SOMATIC (BODY)</div>
+    <div class="p-8">
+        <div id="q-box" class="glass-card min-h-[300px] text-center">
+            <div id="q-num" class="text-gold text-xs mb-4">CARD 1 OF 10</div>
+            <div id="q-text" class="text-xl font-bold mb-8"></div>
+            <div id="q-opts" class="space-y-3"></div>
         </div>
-        <button class="btn-gold" onclick="S.show('research-screen')">Read Technical Blueprint</button>
-        <button class="btn-gold mt-4" onclick="S.goMission()">Start Mission</button>
     </div>
 </div>
 
-<div id="research-screen" class="screen">
-    <div class="screen-pad">
-        <div class="flex justify-between items-center mb-6">
-            <h2 class="serif text-gold text-2xl font-bold">Technical Blueprint</h2>
-            <button onclick="S.show('wisdom-screen')" class="text-gray-400 text-sm">Back</button>
-        </div>
-        <div class="bg-white/5 rounded-2xl border border-gold/30 p-6 overflow-y-auto max-h-[60vh] text-sm text-gray-300 select-none">
-            <h3 class="text-gold font-bold mb-4 uppercase tracking-widest">1. The Founder Catalyst</h3>
-            <p class="mb-4">I beat a 1,825-day prognosis in 365 days by manually reprogramming the nervous system...</p>
-            <h3 class="text-gold font-bold mt-8 mb-4 uppercase tracking-widest">2. The 99-Degree Problem</h3>
-            <p class="mb-4">Water doesn't transform at 99°. It only rises at 100°...</p>
-        </div>
-        <button class="btn-gold mt-10" onclick="S.goMission()">Begin Mission</button>
+<div id="tracker" class="screen">
+    <div class="p-10 text-center">
+        <div class="text-8xl font-bold text-gold" id="score">1</div>
+        <p class="text-gold uppercase font-bold mt-4">Degrees of Heat</p>
     </div>
 </div>
 
-<div id="mission" class="screen">
-  <div class="screen-pad text-center">
-    <div id="step-1" class="space-y-6">
-      <h3 class="text-gold uppercase text-xs font-bold tracking-widest">Step 1: Return with Safety</h3>
-      <div class="text-white font-bold text-xl" id="breath-cycle-ui">CYCLE 0 OF 4</div>
-      <div class="text-gold font-black text-4xl" id="breath-timer">--</div>
-      <div class="breathing-orb-wrap" onclick="S.toggleBreathing()">
-        <div class="breathing-orb" id="bOrb"><span class="text-navy font-bold text-xs" id="bText">TAP TO START</span></div>
-      </div>
-      <button id="breath-next-btn" class="btn-gold mt-10 hidden" onclick="S.nextStep()">Next Step</button>
-    </div>
-    <div id="step-2" class="hidden space-y-6">
-      <h3 class="text-gold uppercase text-xs font-bold tracking-widest">Step 2: Complete the Cycle</h3>
-      <div class="release-btns mx-auto">
-        <button class="release-btn" onclick="S.release('SHAKE')">SHAKE</button>
-        <button class="release-btn" onclick="S.release('CRY')">CRY</button>
-        <button class="release-btn" onclick="S.release('RAGE')">RAGE</button>
-        <button class="release-btn" onclick="S.release('STOMP')">STOMP</button>
-      </div>
-      <div id="release-timer-ui" class="hidden py-10">
-        <div class="text-gold text-5xl font-black mb-4" id="release-time">60</div>
-        <div class="text-sm text-white italic" id="release-instruction"></div>
-      </div>
-      <button class="btn-gold mt-10" id="release-next" disabled onclick="S.nextStep()">Next Step</button>
-    </div>
-    <div id="step-3" class="hidden space-y-8">
-      <h3 class="text-gold uppercase text-xs font-bold tracking-widest">Step 3: Update Body’s Rules</h3>
-      <textarea id="new-decision" placeholder="My body is safe to..."></textarea>
-      <button class="btn-gold mt-12" onclick="S.finishMission()">ENCODE DECISION</button>
-    </div>
-  </div>
-</div>
-
-<div id="tracker" class="screen screen-pad">
-  <div class="text-center mb-10">
-    <div class="radar-score text-7xl font-black text-gold" id="radarScore">1</div>
-    <p class="text-xs uppercase tracking-widest text-gold font-bold mt-2">Degrees of Heat</p>
-  </div>
-  <div id="tracker-stats" class="space-y-6">
-      <div class="bg-white/5 p-6 rounded-3xl border border-gold/20">
-          <div class="flex justify-between text-xs font-bold text-gold uppercase mb-2"><span>90-Day Transformation</span><span id="streak-text">Day 1 of 90</span></div>
-          <div class="w-full bg-navy-light h-3 rounded-full overflow-hidden"><div id="progress-bar" class="h-full bg-gold transition-all duration-1000" style="width: 1%"></div></div>
-      </div>
-      <div class="bg-gold-dim p-6 rounded-3xl border border-gold/30">
-          <h4 class="text-gold text-[10px] font-black uppercase mb-4 tracking-widest">Active Biological Rule:</h4>
-          <p id="saved-decision" class="text-white text-lg font-bold italic">"No decision encoded yet."</p>
-      </div>
-      <p class="text-center text-gray-500 text-xs">Day <span id="current-streak">1</span> of 90. One degree at a time.</p>
-  </div>
-  <button class="btn-gold mt-12" onclick="S.toggleFeedback()">TELL THE TRUTH</button>
-</div>
-
-<div id="inner-circle" class="screen">
-  <div class="screen-pad flex flex-col items-center justify-center min-h-full text-center">
-    <h2 class="serif text-gold text-4xl mb-4">The Council</h2>
-    <button class="btn-gold mt-12" onclick="S.openWhatsApp()">Join WhatsApp Council</button>
-  </div>
-</div>
-
-<nav class="bottom-nav" id="bnav">
-  <button class="nav-item" onclick="S.nav('mission')">MISSION</button>
-  <button class="nav-item" onclick="S.nav('tracker')">TRACKER</button>
-  <button class="nav-item" onclick="S.show('inner-circle')">THE CIRCLE</button>
+<nav id="bnav" class="bottom-nav">
+    <button onclick="S.nav('landing')">MISSION</button>
+    <button onclick="S.nav('tracker')">TRACKER</button>
 </nav>
 
 <script>
 const S = (() => {
-  let st = { currentDay: parseInt(localStorage.getItem('nara_streak') || '1'), missionStep: 1, frequency: 1, answers: [], breathCycles: 0, voiceGuideEnabled: false, lang: 'en-US', encodedDecision: localStorage.getItem('nara_decision') || "No decision encoded yet." };
-  const cards = [
-    { q: "When someone criticizes you, you feel...", opts: ["Numb", "Rage", "Shame", "Invisible"] },
-    { q: "In the morning, your body feels...", opts: ["Heavy", "Wired", "Numb", "Grounded"] },
-    { q: "When conflict arises, you...", opts: ["Shut down", "Explode", "Dissociate", "Stay regulated"] },
-    { q: "Your relationship with rest is...", opts: ["Unsafe", "Guilty crash", "Never restored", "Deeply recharging"] },
-    { q: "In close relationships, you tend to...", opts: ["Push away", "Merge", "Keep a wall", "Healthy boundaries"] },
-    { q: "Your inner critic sounds like...", opts: ["A drill sergeant", "Disappointed parent", "Body tension", "A coach"] },
-    { q: "When thinking of the future, you feel...", opts: ["Dread", "Anxiety", "Blank", "Excitement"] },
-    { q: "Your breathing right now is...", opts: ["Shallow", "Holding", "Quick", "Deep"] },
-    { q: "Your energy at 3 PM...", opts: ["Crashes", "Gets anxious", "Stays flat", "Flows steadily"] },
-    { q: "When asked 'How are you?', you say...", opts: ["'Fine'", "I don't know", "Minimized real answer", "Accurate state"] }
-  ];
-  function speak(text) {
-      if(!st.voiceGuideEnabled) return;
-      window.speechSynthesis.cancel();
-      const utterance = new SpeechSynthesisUtterance(text); utterance.lang = st.lang; utterance.rate = 0.9; window.speechSynthesis.speak(utterance);
-  }
-  function toggleVoiceGuide() {
-      st.voiceGuideEnabled = !st.voiceGuideEnabled;
-      document.getElementById('voice-guide-toggle').innerText = st.voiceGuideEnabled ? "VOICE GUIDE: ON" : "VOICE GUIDE: OFF";
-      if(st.voiceGuideEnabled) speak("Hello. I am NARA. I will guide you.");
-  }
-  function show(id) {
-    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-    if (id === 'tracker') {
-        document.getElementById('saved-decision').innerText = `"${st.encodedDecision}"`;
-        document.getElementById('current-streak').innerText = st.currentDay;
-        document.getElementById('streak-text').innerText = `Day ${st.currentDay} of 90`;
-        document.getElementById('progress-bar').style.width = `${(st.currentDay / 90) * 100}%`;
-        document.getElementById('radarScore').innerText = st.currentDay;
+    let state = { day: 1, step: 0, voice: false, lang: 'en-US' };
+    const cards = [
+        { q: "When criticized, you feel?", o: ["Numb", "Rage", "Shame", "Invisible"] },
+        { q: "Morning body feel?", o: ["Heavy", "Wired", "Numb", "Grounded"] },
+        { q: "During conflict, you?", o: ["Shut down", "Explode", "Dissociate", "Stay regulated"] }
+    ];
+
+    function show(id) {
+        document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
     }
-  }
-  function toggleStory() {
-    const story = document.getElementById('embedded-story'); story.style.display = story.style.display === 'block' ? 'none' : 'block';
-    if(story.style.display === 'block') speak("My name is Ishita. I beat a 5 year prognosis in 1 year. This is NARA.");
-  }
-  function claimSpot() {
-    const name = document.getElementById('beta-name').value; const whatsapp = document.getElementById('beta-whatsapp').value; const email = document.getElementById('beta-email').value;
-    if(!name || !whatsapp || !email) { alert("Please fill all fields."); return; }
-    st.lang = document.getElementById('beta-lang').value;
-    localStorage.setItem('nara_current_user', JSON.stringify({name, whatsapp, email}));
-    document.getElementById('signup-content').classList.add('hidden'); document.getElementById('signup-success').classList.remove('hidden');
-    setTimeout(() => { startQuiz(); }, 2000);
-  }
-  function startQuiz() { st.answers = []; renderCard(0); show('quiz'); }
-  function renderCard(idx) {
-    const c = cards[idx];
-    document.getElementById('qNum').innerText = `CARD ${idx + 1} OF 10`; document.getElementById('qQ').innerText = c.q;
-    const opts = document.getElementById('qOpts'); opts.innerHTML = '';
-    c.opts.forEach((o, i) => {
-      const b = document.createElement('button'); b.className = 'quiz-opt'; b.innerText = o;
-      b.onclick = () => { st.answers.push(i); if (idx + 1 < 10) renderCard(idx + 1); else finishQuiz(); };
-      opts.appendChild(b);
-    });
-    speak(c.q);
-  }
-  function finishQuiz() {
-    const counts = [0, 0, 0, 0]; st.answers.forEach(a => counts[a]++);
-    const mostFreq = counts.indexOf(Math.max(...counts));
-    const res = [{ name: "SAFETY SEEKER", color: "red", text: "Your system broadcasts: I am not safe." }, { name: "INVISIBLE PROTECTOR", color: "red-orange", text: "Your system broadcasts: Being seen is dangerous." }, { name: "LOVE AVOIDER", color: "orange", text: "Your system broadcasts: Love leads to pain." }, { name: "ABUNDANCE BLOCKER", color: "yellow-red", text: "There is a biological ceiling on your abundance." }][mostFreq];
-    document.getElementById('resProfile').innerText = res.name; document.getElementById('resOrb').className = 'glowing-orb ' + res.color; document.getElementById('resDesc').innerText = res.text;
-    show('quiz-result');
-  }
-  function goMission() { document.getElementById('bnav').classList.add('visible'); S.nav('mission'); }
-  function nav(id) { if(id === 'mission') { st.missionStep = 1; document.getElementById('step-1').classList.remove('hidden'); document.getElementById('step-2').classList.add('hidden'); document.getElementById('step-3').classList.add('hidden'); st.breathCycles = 0; } show(id); }
-  function nextStep() { if(st.missionStep === 1) stopBreathing(); st.missionStep++; document.getElementById('step-1').classList.add('hidden'); document.getElementById('step-2').classList.add('hidden'); document.getElementById('step-3').classList.add('hidden'); document.getElementById('step-' + st.missionStep).classList.remove('hidden'); if(st.missionStep === 2) speak("Discharge your energy now."); }
-  let breathInterval; let isBreathing = false;
-  function toggleBreathing() { if(isBreathing) stopBreathing(); else startBreathing(); }
-  function stopBreathing() { isBreathing = false; clearTimeout(breathInterval); const orb = document.getElementById('bOrb'); const txt = document.getElementById('bText'); txt.innerText = 'TAP TO START'; orb.style.transition = 'all 0.5s ease-out'; orb.style.width = '120px'; orb.style.height = '120px'; document.getElementById('breath-timer').innerText = '--'; }
-  function startBreathing() {
-    isBreathing = true; const orb = document.getElementById('bOrb'); const txt = document.getElementById('bText'); const timerUi = document.getElementById('breath-timer'); const counterUi = document.getElementById('breath-cycle-ui'); let phase = 0;
-    const countdown = (sec, next) => { let count = sec; timerUi.innerText = count; const si = setInterval(() => { count--; timerUi.innerText = count; if(count <= 0) { clearInterval(si); next(); } }, 1000); };
-    const cycle = () => {
-        if(!isBreathing) return;
-        if(phase === 0) { txt.innerText = 'INHALE'; speak("Inhale."); orb.style.transition = 'all 4s linear'; orb.style.width = '220px'; orb.style.height = '220px'; countdown(4, () => { phase = 1; cycle(); }); }
-        else if(phase === 1) { txt.innerText = 'HOLD'; speak("Hold."); orb.style.transition = 'none'; countdown(7, () => { phase = 2; cycle(); }); }
-        else { txt.innerText = 'EXHALE'; speak("Exhale."); orb.style.transition = 'all 8s linear'; orb.style.width = '100px'; orb.style.height = '100px'; countdown(8, () => { st.breathCycles++; counterUi.innerText = `CYCLE ${st.breathCycles} OF 4`; if(st.breathCycles >= 4) { speak("Complete."); stopBreathing(); document.getElementById('breath-next-btn').classList.remove('hidden'); return; } phase = 0; cycle(); }); }
-    }; cycle();
-  }
-  function release(type) { document.getElementById('release-timer-ui').classList.remove('hidden'); const timer = document.getElementById('release-time'); speak("Starting " + type); let count = 60; timer.innerText = count; const si = setInterval(() => { count--; timer.innerText = count; if(count <= 0) { clearInterval(si); document.getElementById('release-next').disabled = false; speak("Complete."); } }, 1000); }
-  function finishMission() { const decision = document.getElementById('new-decision').value; if (!decision) { alert("Please enter your decision."); return; } st.encodedDecision = decision; localStorage.setItem('nara_decision', decision); document.getElementById('success-modal').style.display = 'flex'; speak("Decision Encoded."); }
-  function closeSuccess() { document.getElementById('success-modal').style.display = 'none'; st.currentDay++; localStorage.setItem('nara_streak', st.currentDay); st.missionStep = 1; S.nav('tracker'); }
-  function toggleFeedback() { document.getElementById('feedback-modal').style.display = document.getElementById('feedback-modal').style.display === 'flex' ? 'none' : 'flex'; }
-  function submitFeedback() { toggleFeedback(); show('inner-circle'); }
-  function openWhatsApp() { window.open('https://wa.me/918369834310?text=I%20am%20ready.'); }
-  return { show, startQuiz, goMission, nav, nextStep, release, finishMission, toggleStory, claimSpot, toggleFeedback, submitFeedback, toggleBreathing, openWhatsApp, closeSuccess, toggleVoiceGuide };
+
+    function toggleVoice() {
+        state.voice = !state.voice;
+        document.getElementById('voice-guide-toggle').innerText = state.voice ? "VOICE GUIDE: ON" : "VOICE GUIDE: OFF";
+        if(state.voice) { const u = new SpeechSynthesisUtterance("NARA Activated"); window.speechSynthesis.speak(u); }
+    }
+
+    function claim() {
+        const n = document.getElementById('u-name').value;
+        const p = document.getElementById('u-phone').value;
+        const e = document.getElementById('u-email').value;
+        if(!n || !p || !e) return alert("Enter Name, Phone and Email");
+        show('landing');
+    }
+
+    function startQuiz() { render(0); show('quiz'); }
+    function render(idx) {
+        const c = cards[idx % cards.length];
+        document.getElementById('q-text').innerText = c.q;
+        const box = document.getElementById('q-opts');
+        box.innerHTML = '';
+        c.o.forEach(opt => {
+            const b = document.createElement('button');
+            b.className = 'btn-gold'; b.innerText = opt;
+            b.onclick = () => { if(idx < 9) render(idx+1); else show('tracker'); };
+            box.appendChild(b);
+        });
+    }
+
+    function nav(id) { show(id); document.getElementById('bnav').classList.add('visible'); }
+
+    return { show, claim, startQuiz, nav, toggleVoice };
 })();
 </script>
 </body>
