@@ -409,20 +409,37 @@
             padding: 0 20px;
         }
 
-        #nav-spacer-ios { height: 80px; }
-        #nav-spacer-android { height: 60px; }
+        .iceberg-wrap { position: relative; width: 100%; max-width: 340px; margin: 30px auto; }
+        .ice-layer { padding: 12px; border-radius: 12px; margin-bottom: 6px; border: 1px solid rgba(212,175,55,0.2); font-size: 12px; font-weight: 700; }
+        .ice-layer.somatic { background: var(--navy-mid); border-color: var(--gold); }
+        .ice-layer.emotional { background: var(--navy-light); }
+        .ice-layer.mental { background: var(--navy); border-color: var(--gray-dark); }
+
+        .glowing-orb {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            margin: 20px auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: breatheOrb 4s ease infinite;
+        }
+        .glowing-orb.red { background: radial-gradient(circle at 30% 30%, #C41E3A, #8B0000); box-shadow: 0 0 50px rgba(196, 30, 58, 0.6); }
+        .glowing-orb.red-orange { background: radial-gradient(circle at 30% 30%, #FF4500, #C41E3A); box-shadow: 0 0 50px rgba(255, 69, 0, 0.6); }
+        .glowing-orb.orange { background: radial-gradient(circle at 30% 30%, #FFA500, #FF8C00); box-shadow: 0 0 50px rgba(255, 165, 0, 0.6); }
+        .glowing-orb.yellow-red { background: radial-gradient(circle at 30% 30%, #FFD700, #FF4500); box-shadow: 0 0 50px rgba(255, 215, 0, 0.6); }
     </style>
 </head>
 <body>
 
 <button id="voice-guide-toggle" class="voice-control-btn" onclick="S.toggleVoice()">VOICE GUIDE: OFF</button>
 
-<!-- MODAL: TELL THE TRUTH -->
 <div id="truth-modal" class="modal-overlay">
     <div class="modal-content">
         <h3 class="text-gold text-2xl mb-4">Tell the Truth</h3>
         <p class="text-cream text-sm mb-6">Did the profile match your inner reality? Be honest.</p>
-        <textarea id="feedback-text" class="recode-field" style="margin:0 0 24px 0; min-height:100px;" placeholder="Your truth here..."></textarea>
+        <textarea id="feedback-text" class="recode-field" style="margin:0 0 24px 0; min-height:100px; background: white !important; color: black !important;" placeholder="Your truth here..."></textarea>
         <div class="flex gap-4">
             <button class="btn-gold" style="margin:0; width:50%; background:transparent; border:1.5px solid #D4AF37 !important; color:#D4AF37 !important;" onclick="S.closeTruth()">Close</button>
             <button class="btn-gold" style="margin:0; width:50%;" onclick="S.submitTruth()">Submit</button>
@@ -430,7 +447,6 @@
     </div>
 </div>
 
-<!-- 1. FOUNDER SCREEN -->
 <div id="founder-screen" class="screen active">
     <div class="screen-pad text-center">
         <div class="founder-photo-wrap">
@@ -438,41 +454,33 @@
         </div>
         <h2 class="founder-name">Ishita Ghosh</h2>
         <p class="founder-subtitle">Solo Founder & Systems Architect</p>
-        
         <div class="story-box">
-            I was forged in discipline. World-Ranked in Karate. National Champion in Powerlifting. My body was my weapon.<br><br>
-            Then in 2024, it became my prison.<br><br>
-            23 days. Semi-comatose. My mother held my hand and taught me to brush my teeth again.<br><br>
-            Doctors said: 1,825 days. I said: watch me.<br><br>
-            365 days later, I graduated from Mumbai University and started building NARA.<br><br>
-            Not from research. From survival.<br><br>
-            The somatic protocols that rebuilt my nervous system are now inside this app.<br><br>
-            I made it for you. Because you deserve your 100th degree without first losing everything.
+            My name is Ishita Ghosh. I was an elite athlete. Former World Ranker in Karate. National Champion in Powerlifting. My body was my weapon.<br><br>
+            Then in early 2024, everything stopped. 23 days in a semi-coma state. I could not speak. I could not eat alone. My mother taught me to brush my teeth again like a small child.<br><br>
+            Doctors gave me a 5-year prognosis to recover. I beat it in 1 year.<br><br>
+            In April 2026, I completed my graduation and received my degree.<br><br>
+            NARA is the system I built so you can find your 100th degree without first losing everything. Welcome to the Body Realm.
         </div>
-
         <button class="btn-gold" onclick="S.show('beta-signup')">Begin Journey</button>
     </div>
 </div>
 
-<!-- 2. BETA SIGNUP -->
 <div id="beta-signup" class="screen">
     <div class="screen-pad">
         <h2 class="text-gold text-2xl mb-8 uppercase text-center">Join the Council</h2>
         <div class="glass-card">
             <input type="text" id="u-name" placeholder="Full Name">
             <input type="number" id="u-phone" placeholder="WhatsApp Number">
-            <label class="text-gold text-[10px] font-bold uppercase block mb-2">Mother Tongue</label>
             <select id="u-lang">
                 <option value="en-IN">English</option>
                 <option value="hi-IN">Hinglish</option>
                 <option value="bn-IN">Banglish</option>
             </select>
-            <button class="btn-gold mt-4" style="width:100%; margin: 20px 0 0;" onclick="S.claimSpot()">Claim My Spot</button>
+            <button class="btn-gold" style="width:100%; margin: 20px 0 0;" onclick="S.claimSpot()">Claim My Spot</button>
         </div>
     </div>
 </div>
 
-<!-- 3. MISSION ENTRY -->
 <div id="mission-entry" class="screen">
     <div class="screen-pad flex flex-col items-center justify-center min-h-full text-center">
         <h1 class="text-6xl text-gold mb-2">NARA</h1>
@@ -481,7 +489,6 @@
     </div>
 </div>
 
-<!-- 4. QUIZ -->
 <div id="quiz-screen" class="screen">
     <div class="screen-pad">
         <div class="progress-bar-container"><div id="q-progress" class="progress-fill"></div></div>
@@ -495,10 +502,29 @@
     </div>
 </div>
 
-<!-- 5. MISSION STEPS -->
+<div id="quiz-result" class="screen">
+    <div class="screen-pad text-center">
+        <h2 class="serif text-gold text-3xl mb-4 uppercase tracking-widest" id="resProfile"></h2>
+        <div id="resOrb" class="glowing-orb mx-auto"></div>
+        <div class="glass-card mb-10"><p class="text-white text-sm leading-relaxed" id="resDesc"></p></div>
+        <button class="btn-gold" onclick="S.show('wisdom-screen')">Understand Logic</button>
+    </div>
+</div>
+
+<div id="wisdom-screen" class="screen">
+    <div class="screen-pad text-center">
+        <h2 class="text-white text-3xl mb-8">The Iceberg Reality</h2>
+        <div class="iceberg-wrap">
+            <div class="ice-layer mental">5% MENTAL</div>
+            <div class="ice-layer emotional">25% EMOTIONAL</div>
+            <div class="ice-layer somatic" style="padding: 30px 12px; border-width: 2px;">70% SOMATIC (BODY)</div>
+        </div>
+        <button class="btn-gold" onclick="S.goMission()">Start Mission</button>
+    </div>
+</div>
+
 <div id="mission-screen" class="screen">
     <div class="screen-pad text-center">
-        <!-- Step 1: Breath -->
         <div id="step-1" class="mission-step">
             <h3 class="text-gold uppercase text-xs tracking-widest mb-2">Step 1: Return with Safety</h3>
             <div class="orb-container">
@@ -510,51 +536,24 @@
             <div class="text-gold font-black text-2xl h-8" id="breath-timer"></div>
             <button id="breath-next" class="btn-gold hidden" onclick="S.nextStep()">Next Step</button>
         </div>
-
-        <!-- Step 2: Release -->
         <div id="step-2" class="mission-step hidden">
             <h3 class="text-gold uppercase text-xs tracking-widest mb-1">Complete the Cycle</h3>
-            <p class="text-gray-400 text-[10px] uppercase tracking-widest mb-6">Your nervous system needs to move</p>
-            <p class="text-cream text-sm leading-relaxed px-5 mb-8 opacity-80">
-                Stress is stored in the body as incomplete cycles. You must physically move to discharge it. Pick what your body needs right now.
-            </p>
             <div class="release-grid">
-                <div class="release-card" onclick="S.release('SHAKE')">
-                    <div class="emotion-label">Anxiety</div>
-                    <div class="action-label">SHAKE</div>
-                </div>
-                <div class="release-card" onclick="S.release('CRY')">
-                    <div class="emotion-label">Grief</div>
-                    <div class="action-label">CRY</div>
-                </div>
-                <div class="release-card" onclick="S.release('RAGE')">
-                    <div class="emotion-label">Anger</div>
-                    <div class="action-label">RAGE</div>
-                </div>
-                <div class="release-card" onclick="S.release('STOMP')">
-                    <div class="emotion-label">Numbness</div>
-                    <div class="action-label">STOMP</div>
-                </div>
+                <div class="release-card" onclick="S.release('SHAKE')"><div class="emotion-label">Anxiety</div><div class="action-label">SHAKE</div></div>
+                <div class="release-card" onclick="S.release('CRY')"><div class="emotion-label">Grief</div><div class="action-label">CRY</div></div>
+                <div class="release-card" onclick="S.release('RAGE')"><div class="emotion-label">Anger</div><div class="action-label">RAGE</div></div>
+                <div class="release-card" onclick="S.release('STOMP')"><div class="emotion-label">Numbness</div><div class="action-label">STOMP</div></div>
             </div>
-            <div id="rel-timer-ui" class="hidden py-8">
-                <div class="text-gold text-6xl font-black mb-2" id="rel-time">60</div>
-                <button id="rel-next" class="btn-gold opacity-50 pointer-events-none" onclick="S.nextStep()">Wait...</button>
-            </div>
+            <div id="rel-timer-ui" class="hidden py-10"><div class="text-gold text-6xl font-black mb-2" id="rel-time">60</div><button id="rel-next" class="btn-gold opacity-50 pointer-events-none" onclick="S.nextStep()">Wait...</button></div>
         </div>
-
-        <!-- Step 3: Re-Code -->
         <div id="step-3" class="mission-step hidden">
             <h3 class="text-gold uppercase text-xs tracking-widest mb-6">Update Your Body's Rules</h3>
-            <p class="text-cream text-xs text-left px-5 mb-6 leading-relaxed opacity-70">
-                While your nervous system is regulated, it is ready to accept new instructions. Write one belief that feels TRUE in your body right now. Not an affirmation. A somatic truth.
-            </p>
             <textarea id="recode-input" class="recode-field" placeholder="I am safe to be seen..."></textarea>
             <button class="btn-gold" onclick="S.finishMission()">Encode Decision</button>
         </div>
     </div>
 </div>
 
-<!-- 6. COMPLETION -->
 <div id="completion-screen" class="screen">
     <div class="screen-pad text-center">
         <div class="degree-num">1</div>
@@ -562,36 +561,23 @@
         <p class="remain-text">89 degrees remain.</p>
         <p class="water-logic">Water does not become steam at 99 degrees. Return tomorrow for degree 2.</p>
         <button class="btn-gold" onclick="S.showTruth()">Tell the Truth</button>
-        <button class="btn-gold" style="background:transparent; border:1px solid #D4AF37 !important; color:#D4AF37 !important;" onclick="S.nav('tracker')">View Progress</button>
     </div>
 </div>
 
-<!-- 7. TRACKER -->
 <div id="tracker-screen" class="screen">
     <div class="screen-pad text-center">
         <h3 class="text-gold uppercase text-xs tracking-widest mb-10">Your Progress</h3>
         <div class="degree-num" id="dash-degree">1</div>
         <div class="degree-label">Current Degree</div>
-        
-        <div class="glass-card text-left mb-8">
-            <h4 class="text-gold text-[10px] uppercase tracking-widest mb-2">Active Biological Rule</h4>
-            <p id="dash-rule" class="text-cream italic text-sm font-medium">"No rule encoded yet."</p>
-        </div>
-
-        <div class="glass-card text-left">
-            <h4 class="text-gold text-[10px] uppercase tracking-widest mb-2">90-Day Trajectory</h4>
-            <div class="progress-bar-container" style="margin:10px 0;"><div id="streak-progress" class="progress-fill" style="width:1%"></div></div>
-            <p class="text-gray-500 text-[10px] text-right">1 / 90 Days</p>
-        </div>
+        <div class="glass-card text-left mb-8"><h4 class="text-gold text-[10px] uppercase tracking-widest mb-2">Active Biological Rule</h4><p id="dash-rule" class="text-cream italic text-sm font-medium">"No rule encoded yet."</p></div>
+        <div class="glass-card text-left"><h4 class="text-gold text-[10px] uppercase tracking-widest mb-2">90-Day Trajectory</h4><div class="progress-bar-container" style="margin:10px 0;"><div id="streak-progress" class="progress-fill" style="width:1%"></div></div><p class="text-gray-500 text-[10px] text-right">1 / 90 Days</p></div>
     </div>
 </div>
 
-<!-- 8. THE CIRCLE -->
 <div id="circle-screen" class="screen">
     <div class="screen-pad flex flex-col items-center justify-center min-h-full text-center">
         <h2 class="text-gold text-4xl mb-4">The Council</h2>
-        <p class="text-cream text-lg mb-12 opacity-60">Connect with the Top 1%.</p>
-        <button class="btn-gold" onclick="window.open('https://chat.whatsapp.com/F9zo04ZCnpZ9B8iOUgshGq')">Join WhatsApp Council</button>
+        <button class="btn-gold" onclick="window.open('https://chat.whatsapp.com/F9zo04ZCnpZ9B8iOUgshGq')">Join Council</button>
     </div>
 </div>
 
@@ -605,14 +591,10 @@
 const S = (() => {
     let state = {
         day: parseInt(localStorage.getItem('nara_day') || '1'),
-        voice: false,
-        lang: 'en-IN',
+        voice: false, lang: 'en-IN',
         decision: localStorage.getItem('nara_rule') || "No rule encoded yet.",
-        cycles: 0,
-        isBreathing: false,
-        qIdx: 0
+        cycles: 0, isBreathing: false, qIdx: 0, missionStep: 1
     };
-
     const cards = [
         { q: "When someone criticizes you, you feel?", o: ["Numb", "Rage", "Shame", "Invisible"] },
         { q: "In the morning, your body feels?", o: ["Heavy", "Wired", "Numb", "Grounded"] },
@@ -629,9 +611,7 @@ const S = (() => {
     function speak(text) {
         if(!state.voice) return;
         window.speechSynthesis.cancel();
-        const u = new SpeechSynthesisUtterance(text);
-        u.rate = 0.85; u.pitch = 1.0; u.lang = state.lang;
-        window.speechSynthesis.speak(u);
+        const u = new SpeechSynthesisUtterance(text); u.rate = 0.85; u.pitch = 1.0; u.lang = state.lang; window.speechSynthesis.speak(u);
     }
 
     function toggleVoice() {
@@ -640,7 +620,7 @@ const S = (() => {
         if(state.voice) {
             speak("NARA Activated.");
             if(document.getElementById('founder-screen').classList.contains('active')) {
-                speak("My name is Ishita Ghosh. I was an elite athlete. A World-Ranked Karate champion and National Powerlifting title holder. In early 2024, everything stopped. 23 days in a semi-coma state. I could not speak. I could not eat alone. My mother taught me to brush my teeth again like a small child. Doctors gave me 1825 days to recover. I beat it in 365. The tool was somatic science. The system I discovered to rebuild myself became NARA. I built this so you can find your 100th degree without first losing everything. Welcome to the Body Realm.");
+                speak("My name is Ishita Ghosh. I was an elite athlete. Former World Ranker in Karate. National Champion in Powerlifting. My body was my weapon. Then in early 2024, everything stopped. 23 days in a semi-coma state. I could not speak. I could not eat alone. My mother taught me to brush my teeth again like a small child. Doctors gave me 1825 days to recover. I beat it in 365. The tool was somatic science. The system I discovered to rebuild myself became NARA. I built this so you can find your 100th degree without first losing everything. Welcome to the Body Realm.");
             }
         }
     }
@@ -664,14 +644,9 @@ const S = (() => {
         if(id === 'circle-screen') document.getElementById('tab-circle').classList.add('active');
     }
 
-    function claimSpot() {
-        const n = document.getElementById('u-name').value;
-        if(!n) return alert("Enter your name.");
-        state.lang = document.getElementById('u-lang').value;
-        show('mission-entry');
-    }
-
+    function claimSpot() { state.lang = document.getElementById('u-lang').value; show('mission-entry'); }
     function startQuiz() { state.qIdx = 0; renderQ(); show('quiz-screen'); }
+
     function renderQ() {
         const c = cards[state.qIdx];
         const el = document.getElementById('q-card');
@@ -685,7 +660,7 @@ const S = (() => {
             c.o.forEach(opt => {
                 const b = document.createElement('button');
                 b.className = 'opt-btn'; b.innerText = opt;
-                b.onclick = () => { if(state.qIdx < 9) { state.qIdx++; renderQ(); } else { nav('mission-entry'); } };
+                b.onclick = () => { if(state.qIdx < 9) { state.qIdx++; renderQ(); } else { finishQuiz(); } };
                 box.appendChild(b);
             });
             el.style.opacity = 1;
@@ -693,15 +668,27 @@ const S = (() => {
         }, 300);
     }
 
-    let bInt; 
+    function finishQuiz() {
+        const counts = [0,0,0,0];
+        state.answers.forEach(a => counts[a]++);
+        const most = counts.indexOf(Math.max(...counts));
+        const profiles = [
+            { n: "SAFETY SEEKER", c: "red", t: "Your system broadcasts: I am not safe." },
+            { n: "INVISIBLE PROTECTOR", c: "red-orange", t: "Your system broadcasts: Being seen is dangerous." },
+            { n: "LOVE AVOIDER", c: "orange", t: "Your system broadcasts: Love leads to pain." },
+            { n: "ABUNDANCE BLOCKER", c: "yellow-red", t: "Biological ceiling detected." }
+        ];
+        document.getElementById('resProfile').innerText = profiles[most].n;
+        document.getElementById('resOrb').className = 'glowing-orb mx-auto ' + profiles[most].c;
+        document.getElementById('resDesc').innerText = profiles[most].t;
+        show('quiz-result');
+    }
+
+    function goMission() { state.missionStep = 1; nav('mission-screen'); }
+
     function toggleBreathing() {
-        if(state.isBreathing) {
-            state.isBreathing = false; clearInterval(bInt);
-            document.getElementById('orbText').innerText = "TAP TO START";
-            document.getElementById('breathOrb').style.transform = "scale(1)";
-        } else {
-            state.isBreathing = true; state.cycles = 0; runCycle();
-        }
+        if(state.isBreathing) { state.isBreathing = false; } 
+        else { state.isBreathing = true; state.cycles = 0; runCycle(); }
     }
 
     function runCycle() {
@@ -709,40 +696,43 @@ const S = (() => {
         const orb = document.getElementById('breathOrb');
         const txt = document.getElementById('orbText');
         const timer = document.getElementById('breath-timer');
-        
-        // INHALE
-        txt.innerText = "INHALE"; orb.style.transition = "transform 4s linear"; orb.style.transform = "scale(1.4)"; orb.style.borderColor = "#D4AF37";
+        txt.innerText = "INHALE"; orb.style.transition = "transform 4s linear"; orb.style.transform = "scale(1.4)";
         let c = 4; timer.innerText = c; speak("Inhale");
-        let i = setInterval(() => { c--; if(c>=0) timer.innerText = c; if(c<=0) {
-            clearInterval(i);
-            // HOLD
-            txt.innerText = "HOLD"; orb.style.transition = "none"; orb.style.borderColor = "#FFFFFF";
-            let h = 7; timer.innerText = h; speak("Hold");
-            let j = setInterval(() => { h--; if(h>=0) timer.innerText = h; if(h<=0) {
-                clearInterval(j);
-                // EXHALE
-                txt.innerText = "EXHALE"; orb.style.transition = "transform 8s linear"; orb.style.transform = "scale(1)"; orb.style.borderColor = "#C41E3A";
-                let e = 8; timer.innerText = e; speak("Exhale");
-                let k = setInterval(() => { e--; if(e>=0) timer.innerText = e; if(e<=0) {
-                    clearInterval(k); state.cycles++; document.getElementById('cycleNum').innerText = state.cycles;
-                    if(state.cycles >= 4) {
-                        state.isBreathing = false; txt.innerText = "COMPLETE";
-                        document.getElementById('breath-next').classList.remove('hidden');
-                        speak("Step 1 Complete");
-                    } else runCycle();
-                } }, 1000);
-            } }, 1000);
-        } }, 1000);
-        bInt = i;
+        let i = setInterval(() => {
+            c--; if(c>=0) timer.innerText = c;
+            if(c<=0) {
+                clearInterval(i);
+                txt.innerText = "HOLD"; orb.style.transition = "none";
+                let h = 7; timer.innerText = h; speak("Hold");
+                let j = setInterval(() => {
+                    h--; if(h>=0) timer.innerText = h;
+                    if(h<=0) {
+                        clearInterval(j);
+                        txt.innerText = "EXHALE"; orb.style.transition = "transform 8s linear"; orb.style.transform = "scale(1.0)";
+                        let e = 8; timer.innerText = e; speak("Exhale");
+                        let k = setInterval(() => {
+                            e--; if(e>=0) timer.innerText = e;
+                            if(e<=0) {
+                                clearInterval(k); state.cycles++; document.getElementById('cycleNum').innerText = state.cycles;
+                                if(state.cycles >= 4) {
+                                    state.isBreathing = false; txt.innerText = "COMPLETE";
+                                    document.getElementById('breath-next').classList.remove('hidden');
+                                    speak("Step 1 Complete");
+                                } else runCycle();
+                            }
+                        }, 1000);
+                    }
+                }, 1000);
+            }
+        }, 1000);
     }
 
     function release(type) {
         document.getElementById('rel-timer-ui').classList.remove('hidden');
         let c = 60; const timer = document.getElementById('rel-time'); const btn = document.getElementById('rel-next');
-        const instr = document.getElementById('release-instruction');
-        const msgs = { SHAKE: "Vibrate every limb. Release the cortisol.", CRY: "Let the water flow. It is a chemical reset.", RAGE: "Growl. Tension must leave the jaw and core.", STOMP: "Ground yourself. Reclaim the earth beneath you." };
-        instr.innerText = msgs[type]; speak("Starting release");
-        let i = setInterval(() => { c--; timer.innerText = c; if(c<=0) { clearInterval(i); btn.innerText = "Next Step"; btn.classList.remove('opacity-50', 'pointer-events-none'); document.getElementById('release-next').disabled = false; } }, 1000);
+        const msgs = { SHAKE: "Vibrate every limb.", CRY: "Let the water flow.", RAGE: "Growl.", STOMP: "Ground yourself." };
+        speak(msgs[type]);
+        let i = setInterval(() => { c--; timer.innerText = c; if(c<=0) { clearInterval(i); btn.innerText = "Next Step"; btn.classList.remove('opacity-50', 'pointer-events-none'); } }, 1000);
     }
 
     function nextStep() {
@@ -760,7 +750,7 @@ const S = (() => {
 
     function showTruth() { document.getElementById('truth-modal').classList.add('active'); }
     function closeTruth() { document.getElementById('truth-modal').classList.remove('active'); }
-    function submitTruth() { closeTruth(); nav('tracker-screen'); state.day++; localStorage.setItem('nara_day', state.day); }
+    function submitTruth() { closeTruth(); state.day++; localStorage.setItem('nara_day', state.day); nav('tracker-screen'); }
 
     return { toggleVoice, show, nav, claimSpot, startQuiz, toggleBreathing, release, nextStep, finishMission, showTruth, closeTruth, submitTruth };
 })();
