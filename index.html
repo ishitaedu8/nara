@@ -161,7 +161,7 @@
             border-radius: 24px;
             padding: 32px 24px;
             margin: 16px;
-            min-height: 60vh;
+            min-height: 55vh;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -429,6 +429,20 @@
         .glowing-orb.red-orange { background: radial-gradient(circle at 30% 30%, #FF4500, #C41E3A); box-shadow: 0 0 50px rgba(255, 69, 0, 0.6); }
         .glowing-orb.orange { background: radial-gradient(circle at 30% 30%, #FFA500, #FF8C00); box-shadow: 0 0 50px rgba(255, 165, 0, 0.6); }
         .glowing-orb.yellow-red { background: radial-gradient(circle at 30% 30%, #FFD700, #FF4500); box-shadow: 0 0 50px rgba(255, 215, 0, 0.6); }
+
+        #nav-spacer-ios { height: 80px; }
+        #nav-spacer-android { height: 60px; }
+
+        input, select {
+            background-color: #FFFFFF !important;
+            color: #000000 !important;
+            padding: 16px !important;
+            font-size: 16px !important;
+            border: 2px solid var(--gold) !important;
+            border-radius: 12px !important;
+            width: 100%;
+            margin-bottom: 16px;
+        }
     </style>
 </head>
 <body>
@@ -471,12 +485,14 @@
         <div class="glass-card">
             <input type="text" id="u-name" placeholder="Full Name">
             <input type="number" id="u-phone" placeholder="WhatsApp Number">
+            <input type="email" id="u-email" placeholder="Email Address">
+            <label class="text-gold text-[10px] font-bold uppercase block mb-2">Mother Tongue</label>
             <select id="u-lang">
                 <option value="en-IN">English</option>
                 <option value="hi-IN">Hinglish</option>
                 <option value="bn-IN">Banglish</option>
             </select>
-            <button class="btn-gold" style="width:100%; margin: 20px 0 0;" onclick="S.claimSpot()">Claim My Spot</button>
+            <button class="btn-gold mt-4" style="width:100%; margin: 20px 0 0;" onclick="S.claimSpot()">Claim My Spot</button>
         </div>
     </div>
 </div>
@@ -644,7 +660,14 @@ const S = (() => {
         if(id === 'circle-screen') document.getElementById('tab-circle').classList.add('active');
     }
 
-    function claimSpot() { state.lang = document.getElementById('u-lang').value; show('mission-entry'); }
+    function toggleStory() { document.getElementById('embedded-story').classList.toggle('hidden'); }
+    function claimSpot() { 
+        const name = document.getElementById('u-name').value;
+        const phone = document.getElementById('u-phone').value;
+        if(!name || !phone) return alert("Enter details.");
+        state.lang = document.getElementById('u-lang').value; 
+        show('mission-entry'); 
+    }
     function startQuiz() { state.qIdx = 0; renderQ(); show('quiz-screen'); }
 
     function renderQ() {
@@ -752,7 +775,7 @@ const S = (() => {
     function closeTruth() { document.getElementById('truth-modal').classList.remove('active'); }
     function submitTruth() { closeTruth(); state.day++; localStorage.setItem('nara_day', state.day); nav('tracker-screen'); }
 
-    return { toggleVoice, show, nav, claimSpot, startQuiz, toggleBreathing, release, nextStep, finishMission, showTruth, closeTruth, submitTruth };
+    return { toggleVoice, show, nav, claimSpot, startQuiz, toggleBreathing, release, nextStep, finishMission, showTruth, closeTruth, submitTruth, toggleStory, goMission };
 })();
 </script>
 </body>
