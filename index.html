@@ -1,782 +1,240 @@
+
+        
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    
-    <title>NARA by Ishita Ghosh | The 100-Degree Protocol</title>
-    <meta name="description" content="Built by Ishita Ghosh. World-Ranked Athlete. National Champion. Neuropsychiatric survivor. NARA is the somatic protocol that rebuilt her in 365 days instead of 1825. Now building it for Gen Z who are stuck at 99 degrees.">
-    <meta property="og:title" content="NARA | The 100-Degree Protocol">
-    <meta property="og:description" content="Your nervous system is frozen in a past moment. NARA provides the last degree. Built by Ishita Ghosh from personal survival.">
-    <meta property="og:url" content="https://ishitaedu8.github.io/nara/">
-    <meta property="og:image" content="https://ishitaedu8.github.io/nara/assets/ishita.jpg">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>Ishita Ghosh — Founder of NARA | The 100-Degree Protocol</title>
+<meta name="description" content="World-Ranked Athlete. National Champion. Neuropsychiatric survivor. Founder of NARA — the Execution Intelligence OS for Gen Z.">
+<meta property="og:title" content="Ishita Ghosh | NARA Founder">
+<meta property="og:description" content="Beat a 5-year prognosis in 1 year. Built NARA. Stuck at 99°? Unlock the 100th.">
+<meta property="og:url" content="https://ishitaedu8.github.io/nara/">
+<meta property="og:image" content="https://ishitaedu8.github.io/nara/assets/ishita.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0A0E1F;--surface:#12172E;--navy-mid:#1a2040;--navy-light:#222847;
+  --gold:#D4AF37;--gold-dark:#B8960C;--crimson:#C41E3A;
+  --white:#FFFFFF;--cream:#F5F0E8;--muted:rgba(245,240,232,0.55);
+  --border:rgba(212,175,55,0.22);
+}
+html,body{background:var(--navy);color:var(--white);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;min-height:100vh;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:800}
+.screen{position:absolute;inset:0;display:none;flex-direction:column;opacity:0;overflow-y:auto;z-index:1;padding-bottom:100px;min-height:100vh}
+.screen.active{display:flex;opacity:1;z-index:10}
+.screen-pad{padding:36px 16px}
+.hidden{display:none!important}
+.glass-card{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:20px;padding:24px;margin:12px 0}
+.btn-gold{background:linear-gradient(135deg,#D4AF37 0%,#B8960C 100%);color:var(--navy);font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;letter-spacing:2.5px;text-transform:uppercase;padding:18px 32px;border-radius:50px;border:none;box-shadow:0 4px 24px rgba(212,175,55,.35);width:calc(100% - 32px);margin:8px 16px;cursor:pointer;display:block;text-align:center;transition:all .2s}
+.btn-gold:active{transform:scale(.97)}
+.btn-ghost{background:transparent;border:1.5px solid var(--gold);color:var(--gold);font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13px;letter-spacing:2px;text-transform:uppercase;padding:14px 32px;border-radius:50px;width:calc(100% - 32px);margin:4px 16px;cursor:pointer;display:block;text-align:center;transition:all .2s}
+.field{width:100%;padding:16px;background:#fff;color:#000;font-family:'Inter',sans-serif;font-size:16px;border:2px solid var(--gold);border-radius:12px;margin-bottom:14px;outline:none;-webkit-appearance:none}
+.field-label{font-size:10px;font-weight:700;color:var(--gold);letter-spacing:3px;text-transform:uppercase;display:block;margin-bottom:6px}
+textarea.field{min-height:110px;resize:none}
+.section-label{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;display:block}
+.screen-title{font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;color:var(--cream);line-height:1.4;margin-bottom:8px}
+.screen-sub{font-size:13px;color:var(--muted);line-height:1.8;margin-bottom:20px}
 
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+/* ── CV ── */
+#cv-screen{background:var(--navy);padding-bottom:40px}
+.cv-hero{text-align:center;padding:48px 24px 32px;background:radial-gradient(ellipse at 50% 0%,rgba(212,175,55,.1) 0%,transparent 60%);border-bottom:1px solid var(--border)}
 
-    <style>
-        :root {
-            --navy: #0A0E1F;
-            --surface: #12172E;
-            --gold: #D4AF37;
-            --gold-dark: #B8960C;
-            --crimson: #C41E3A;
-            --white: #FFFFFF;
-            --cream: #F5F0E8;
-        }
+/* PHOTO — uses absolute URL so it always resolves */
+.cv-photo-ring{width:150px;height:150px;border-radius:50%;border:3px solid var(--gold);box-shadow:0 0 0 6px rgba(212,175,55,.12),0 0 40px rgba(212,175,55,.2);overflow:hidden;margin:0 auto 20px;background:var(--surface);display:flex;align-items:center;justify-content:center}
+.cv-photo-ring img{width:100%;height:100%;object-fit:cover;display:block}
+.cv-photo-fallback{font-family:'Space Grotesk',sans-serif;font-size:52px;font-weight:800;color:var(--gold)}
 
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+.cv-name{font-family:'Space Grotesk',sans-serif;font-size:30px;font-weight:800;color:var(--cream);margin-bottom:6px}
+.cv-title-line{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.cv-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:12px 0}
+.cv-tag{font-size:9px;letter-spacing:2px;text-transform:uppercase;border:1px solid var(--border);padding:4px 12px;color:var(--muted);border-radius:20px}
+.cv-tag.hot{border-color:rgba(212,175,55,.4);color:var(--gold)}
+.cv-links{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:14px;font-size:11px}
+.cv-links a{color:var(--gold);text-decoration:none}
 
-        body {
-            background: var(--navy);
-            background-image: 
-                radial-gradient(ellipse at 20% 50%, rgba(212,175,55,0.06) 0%, transparent 60%),
-                radial-gradient(ellipse at 80% 20%, rgba(196,30,58,0.04) 0%, transparent 60%);
-            animation: breathe 8s ease-in-out infinite;
-            color: var(--white);
-            font-family: 'Inter', sans-serif;
-            -webkit-font-smoothing: antialiased;
-            min-height: 100vh;
-            overflow-x: hidden;
-            position: relative;
-        }
+.cv-section{padding:0 20px;margin:28px 0}
+.cv-section-title{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);padding-bottom:10px;margin-bottom:16px;border-bottom:1px solid rgba(212,175,55,.15)}
+.cv-story{font-size:15px;line-height:1.9;color:var(--cream)}
+.cv-story p{margin-bottom:14px}
+.cv-story strong{color:var(--gold)}
+.cv-entry{margin-bottom:20px}
+.cv-entry-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:4px;margin-bottom:3px}
+.cv-entry-title{font-size:14px;font-weight:700;color:var(--cream)}
+.cv-entry-date{font-size:10px;color:var(--muted);letter-spacing:1px}
+.cv-entry-org{font-size:11px;color:var(--gold);margin-bottom:5px}
+.cv-entry-desc{font-size:12px;color:var(--muted);line-height:1.8}
+.cv-entry-desc strong{color:rgba(245,240,232,.8)}
+.medal-list{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.medal-row{display:flex;gap:10px;font-size:12px;color:var(--muted);align-items:baseline}
+.medal-dot{color:var(--gold);font-size:10px;flex-shrink:0}
+.cert-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.cert-card{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:12px;padding:14px 12px}
+.cert-name{font-size:12px;font-weight:700;color:var(--cream);margin-bottom:3px}
+.cert-org{font-size:10px;color:var(--gold)}
+.cv-divider{height:1px;background:var(--border);margin:0 20px}
+.cv-cta{text-align:center;padding:40px 20px 20px;background:radial-gradient(ellipse at 50% 100%,rgba(212,175,55,.08) 0%,transparent 60%)}
+.degree-badge{font-family:'Space Grotesk',sans-serif;font-size:58px;font-weight:800;background:linear-gradient(135deg,var(--gold-dark),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;margin-bottom:4px}
 
-        @keyframes breathe {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.85; }
-        }
-
-        h1, h2, h3, h4 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 800;
-        }
-
-        .screen {
-            position: absolute;
-            inset: 0;
-            display: none;
-            flex-direction: column;
-            opacity: 0;
-            overflow-y: auto;
-            transition: opacity 0.4s ease;
-            z-index: 1;
-            padding-bottom: 220px;
-        }
-
-        .screen.active {
-            display: flex;
-            opacity: 1;
-            z-index: 10;
-        }
-
-        .screen-pad { padding: 40px 16px; }
-
-        .founder-photo-wrap {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            border: 3px solid #D4AF37;
-            box-shadow: 
-                0 0 0 6px rgba(212,175,55,0.15),
-                0 0 40px rgba(212,175,55,0.25);
-            overflow: hidden;
-            margin: 0 auto 20px;
-        }
-
-        .founder-photo-wrap img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .founder-name {
-            font-size: 32px;
-            letter-spacing: 1px;
-            text-align: center;
-            margin-bottom: 4px;
-        }
-
-        .founder-subtitle {
-            font-size: 11px;
-            font-weight: 500;
-            color: var(--gold);
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            text-align: center;
-            margin-bottom: 24px;
-        }
-
-        .story-box {
-            font-size: 16px;
-            line-height: 1.8;
-            color: var(--cream);
-            text-align: left;
-            padding: 24px;
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(212,175,55,0.2);
-            border-radius: 20px;
-            margin: 20px 0;
-        }
-
-        .btn-gold {
-            background: linear-gradient(135deg, #D4AF37 0%, #B8960C 100%);
-            color: var(--navy);
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-            font-size: 14px;
-            letter-spacing: 2.5px;
-            text-transform: uppercase;
-            padding: 18px 32px;
-            border-radius: 50px;
-            border: none;
-            box-shadow: 0 4px 24px rgba(212,175,55,0.35);
-            width: calc(100% - 32px);
-            margin: 8px 16px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-align: center;
-        }
-
-        .btn-gold:active { transform: scale(0.97); box-shadow: 0 2px 12px rgba(212,175,55,0.2); }
-
-        .voice-control-btn {
-            position: fixed;
-            top: 16px;
-            right: 16px;
-            z-index: 9999;
-            background: transparent;
-            border: 1.5px solid #D4AF37;
-            color: #D4AF37;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            padding: 8px 14px;
-            border-radius: 20px;
-            cursor: pointer;
-        }
-
-        .quiz-card {
-            background: var(--surface);
-            border: 1px solid rgba(212,175,55,0.25);
-            border-radius: 24px;
-            padding: 32px 24px;
-            margin: 16px;
-            min-height: 55vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .progress-bar-container {
-            height: 3px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 2px;
-            overflow: hidden;
-            margin: 0 16px 20px;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #C41E3A, #D4AF37);
-            transition: width 0.4s ease;
-            width: 0%;
-        }
-
-        .q-text {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 22px;
-            font-weight: 700;
-            color: #FFFFFF;
-            line-height: 1.4;
-            margin-bottom: 32px;
-        }
-
-        .opt-btn {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 14px;
-            padding: 16px 20px;
-            font-family: 'Inter', sans-serif;
-            font-size: 15px;
-            color: var(--cream);
-            margin-bottom: 12px;
-            text-align: left;
-            width: 100%;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .opt-btn:hover, .opt-btn.selected {
-            border-color: #D4AF37;
-            background: rgba(212,175,55,0.12);
-            color: #D4AF37;
-        }
-
-        .orb-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 48px 0;
-        }
-
-        .orb {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(212,175,55,0.3) 0%, rgba(212,175,55,0.1) 50%, transparent 70%);
-            border: 2px solid rgba(212,175,55,0.6);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: transform 0.1s linear, border-color 0.3s ease;
-            box-shadow: 0 0 40px rgba(212,175,55,0.2), inset 0 0 40px rgba(212,175,55,0.1);
-        }
-
-        .orb-text {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            color: #D4AF37;
-        }
-
-        .cycle-count {
-            margin-top: 16px;
-            font-size: 14px;
-            color: rgba(212,175,55,0.7);
-            letter-spacing: 1px;
-        }
-
-        .release-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            padding: 0 16px;
-        }
-
-        .release-card {
-            background: var(--surface);
-            border: 1px solid rgba(212,175,55,0.2);
-            border-radius: 16px;
-            padding: 20px 12px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .release-card:active { transform: scale(0.95); }
-
-        .emotion-label {
-            font-family: 'Inter', sans-serif;
-            font-size: 10px;
-            color: var(--crimson);
-            letter-spacing: 2px;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-
-        .action-label {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 18px;
-            font-weight: 800;
-            color: var(--gold);
-            margin-top: 4px;
-        }
-
-        .recode-field {
-            width: calc(100% - 32px);
-            margin: 16px;
-            padding: 20px;
-            background: #FFFFFF;
-            color: #000000;
-            font-family: 'Inter', sans-serif;
-            font-size: 17px;
-            border: 2px solid var(--gold);
-            border-radius: 16px;
-            min-height: 120px;
-            resize: none;
-            outline: none;
-            -webkit-appearance: none;
-        }
-
-        .bottom-nav {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(10, 14, 31, 0.98);
-            border-top: 1px solid rgba(212, 175, 55, 0.2);
-            display: none;
-            justify-content: space-around;
-            padding: 16px 0;
-            z-index: 100;
-        }
-
-        .bottom-nav.visible { display: flex; }
-
-        .nav-tab {
-            background: none;
-            border: none;
-            color: rgba(255,255,255,0.4);
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            padding: 8px 12px;
-            cursor: pointer;
-            position: relative;
-        }
-
-        .nav-tab.active {
-            color: var(--gold);
-        }
-
-        .nav-tab.active::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 12px;
-            right: 12px;
-            height: 2px;
-            background: var(--gold);
-        }
-
-        .modal-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.9);
-            backdrop-filter: blur(10px);
-            z-index: -1;
-            visibility: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            transition: opacity 0.3s ease;
-            opacity: 0;
-        }
-
-        .modal-overlay.active {
-            z-index: 10000;
-            visibility: visible;
-            opacity: 1;
-        }
-
-        .modal-content {
-            background: var(--surface);
-            border: 2px solid var(--gold);
-            border-radius: 24px;
-            padding: 32px;
-            text-align: center;
-            width: 100%;
-            max-width: 400px;
-        }
-
-        #completion-screen {
-            text-align: center;
-            justify-content: center;
-        }
-
-        .degree-num {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 120px;
-            font-weight: 800;
-            color: var(--gold);
-            line-height: 1;
-        }
-
-        .degree-label {
-            font-family: 'Inter', sans-serif;
-            font-size: 11px;
-            letter-spacing: 4px;
-            color: rgba(212,175,55,0.7);
-            margin-bottom: 24px;
-        }
-
-        .remain-text {
-            font-size: 18px;
-            color: var(--cream);
-            margin-bottom: 8px;
-        }
-
-        .water-logic {
-            font-size: 14px;
-            color: rgba(245,240,232,0.6);
-            line-height: 1.6;
-            margin-bottom: 40px;
-            padding: 0 20px;
-        }
-
-        .iceberg-wrap { position: relative; width: 100%; max-width: 340px; margin: 30px auto; }
-        .ice-layer { padding: 12px; border-radius: 12px; margin-bottom: 6px; border: 1px solid rgba(212,175,55,0.2); font-size: 12px; font-weight: 700; }
-        .ice-layer.somatic { background: var(--navy-mid); border-color: var(--gold); }
-        .ice-layer.emotional { background: var(--navy-light); }
-        .ice-layer.mental { background: var(--navy); border-color: var(--gray-dark); }
-
-        .glowing-orb {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            margin: 20px auto 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: breatheOrb 4s ease infinite;
-        }
-        .glowing-orb.red { background: radial-gradient(circle at 30% 30%, #C41E3A, #8B0000); box-shadow: 0 0 50px rgba(196, 30, 58, 0.6); }
-        .glowing-orb.red-orange { background: radial-gradient(circle at 30% 30%, #FF4500, #C41E3A); box-shadow: 0 0 50px rgba(255, 69, 0, 0.6); }
-        .glowing-orb.orange { background: radial-gradient(circle at 30% 30%, #FFA500, #FF8C00); box-shadow: 0 0 50px rgba(255, 165, 0, 0.6); }
-        .glowing-orb.yellow-red { background: radial-gradient(circle at 30% 30%, #FFD700, #FF4500); box-shadow: 0 0 50px rgba(255, 215, 0, 0.6); }
-
-        #nav-spacer-ios { height: 80px; }
-        #nav-spacer-android { height: 60px; }
-
-        input, select {
-            background-color: #FFFFFF !important;
-            color: #000000 !important;
-            padding: 16px !important;
-            font-size: 16px !important;
-            border: 2px solid var(--gold) !important;
-            border-radius: 12px !important;
-            width: 100%;
-            margin-bottom: 16px;
-        }
-    </style>
+/* ── APP ── */
+.progress-bar-container{height:3px;background:rgba(255,255,255,.1);border-radius:2px;overflow:hidden;margin:0 16px 20px}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--crimson),var(--gold));transition:width .4s ease;width:0%}
+.quiz-card{background:var(--surface);border:1px solid var(--border);border-radius:24px;padding:28px 20px;margin:0 16px;min-height:50vh;display:flex;flex-direction:column;justify-content:space-between}
+.q-num{font-size:10px;font-weight:700;color:var(--gold);letter-spacing:3px;text-transform:uppercase;margin-bottom:16px}
+.q-text{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;color:#fff;line-height:1.4;margin-bottom:24px}
+.opt-btn{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:15px 18px;font-family:'Inter',sans-serif;font-size:14px;color:var(--cream);margin-bottom:10px;text-align:left;width:100%;cursor:pointer;transition:all .2s;display:block}
+.opt-btn.selected,.opt-btn:active{border-color:var(--gold);background:rgba(212,175,55,.12);color:var(--gold)}
+.glowing-orb{width:130px;height:130px;border-radius:50%;margin:20px auto 28px;display:flex;align-items:center;justify-content:center;animation:breatheOrb 4s ease infinite}
+.glowing-orb.red{background:radial-gradient(circle at 30% 30%,#C41E3A,#8B0000);box-shadow:0 0 50px rgba(196,30,58,.6)}
+.glowing-orb.red-orange{background:radial-gradient(circle at 30% 30%,#FF4500,#C41E3A);box-shadow:0 0 50px rgba(255,69,0,.6)}
+.glowing-orb.orange{background:radial-gradient(circle at 30% 30%,#FFA500,#FF8C00);box-shadow:0 0 50px rgba(255,165,0,.6)}
+.glowing-orb.yellow{background:radial-gradient(circle at 30% 30%,#FFD700,#D4AF37);box-shadow:0 0 50px rgba(255,215,0,.6)}
+@keyframes breatheOrb{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+.iceberg-wrap{width:100%;max-width:340px;margin:28px auto}
+.ice-layer{padding:14px;border-radius:12px;margin-bottom:6px;border:1px solid var(--border);font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-align:center;color:var(--cream)}
+.ice-mental{background:var(--navy);border-color:rgba(255,255,255,.15)}
+.ice-emotional{background:var(--navy-light)}
+.ice-somatic{background:var(--navy-mid);border:2px solid var(--gold);padding:28px 14px;color:var(--gold)}
+.orb-container{display:flex;flex-direction:column;align-items:center;padding:32px 0}
+.orb{width:185px;height:185px;border-radius:50%;background:radial-gradient(circle,rgba(212,175,55,.3) 0%,rgba(212,175,55,.1) 50%,transparent 70%);border:2px solid rgba(212,175,55,.6);display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 0 40px rgba(212,175,55,.2),inset 0 0 40px rgba(212,175,55,.1)}
+.orb-text{font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;color:var(--gold)}
+.cycle-count{margin-top:14px;font-size:14px;color:rgba(212,175,55,.7);letter-spacing:1px}
+.breath-timer-display{font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:800;color:var(--gold);text-align:center;height:40px;line-height:40px}
+.release-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 16px}
+.release-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:22px 12px;text-align:center;cursor:pointer;transition:all .2s}
+.release-card:active{transform:scale(.95);border-color:var(--gold)}
+.emotion-label{font-size:10px;color:var(--crimson);letter-spacing:2px;font-weight:600;text-transform:uppercase}
+.action-label{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:800;color:var(--gold);margin-top:4px}
+.execution-task-box{background:rgba(212,175,55,.07);border:1px solid rgba(212,175,55,.35);border-radius:16px;padding:24px;margin:0 16px 20px}
+.exec-label{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.exec-task-text{font-family:'Space Grotesk',sans-serif;font-size:18px;color:var(--cream);line-height:1.5}
+.exec-timer{font-family:'Space Grotesk',sans-serif;font-size:72px;font-weight:800;color:var(--white);letter-spacing:-2px;text-align:center;line-height:1}
+.exec-timer-label{font-size:11px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;text-align:center;margin-top:4px}
+.degree-num{font-family:'Space Grotesk',sans-serif;font-size:110px;font-weight:800;color:var(--gold);line-height:1;text-align:center}
+.water-logic{font-size:14px;color:var(--muted);line-height:1.7;text-align:center;padding:0 20px;margin-bottom:28px}
+.dash-degree{font-family:'Space Grotesk',sans-serif;font-size:90px;font-weight:800;letter-spacing:-2px;background:linear-gradient(135deg,var(--gold-dark),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;text-align:center}
+.boil-track{width:100%;height:3px;background:rgba(255,255,255,.08);border-radius:2px;overflow:hidden;margin:6px 0 4px}
+.boil-fill{height:100%;background:linear-gradient(90deg,var(--crimson),var(--gold));transition:width 1s ease}
+.boil-milestones{display:flex;justify-content:space-between;font-size:9px;color:var(--muted);letter-spacing:1px;padding:0 20px}
+.boil-reached{color:var(--gold)}
+.stats-row{display:flex;gap:10px;margin:16px}
+.stat-card{flex:1;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:14px;padding:16px 12px}
+.stat-label{font-size:9px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:6px}
+.stat-value{font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700;color:var(--white)}
+.broadcast-card{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:14px;padding:20px;margin:0 16px 12px}
+.broadcast-tag{font-size:9px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:8px}
+.broadcast-text{font-size:13px;color:var(--cream);line-height:1.7}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:rgba(10,14,31,.98);border-top:1px solid var(--border);display:none;justify-content:space-around;padding:14px 0 20px;z-index:100}
+.bottom-nav.visible{display:flex}
+.nav-tab{background:none;border:none;color:rgba(255,255,255,.35);font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;letter-spacing:1px;padding:8px 12px;cursor:pointer;position:relative}
+.nav-tab.active{color:var(--gold)}
+.nav-tab.active::after{content:'';position:absolute;bottom:-2px;left:12px;right:12px;height:2px;background:var(--gold)}
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.9);backdrop-filter:blur(10px);z-index:-1;visibility:hidden;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;transition:opacity .3s}
+.modal-overlay.active{z-index:10000;visibility:visible;opacity:1}
+.modal-content{background:var(--surface);border:2px solid var(--gold);border-radius:24px;padding:32px;text-align:center;width:100%;max-width:400px}
+.voice-control-btn{position:fixed;top:16px;right:16px;z-index:9999;background:transparent;border:1.5px solid var(--gold);color:var(--gold);font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;padding:8px 14px;border-radius:20px;cursor:pointer;display:none}
+</style>
 </head>
 <body>
 
 <button id="voice-guide-toggle" class="voice-control-btn" onclick="S.toggleVoice()">VOICE GUIDE: OFF</button>
 
 <div id="truth-modal" class="modal-overlay">
-    <div class="modal-content">
-        <h3 class="text-gold text-2xl mb-4">Tell the Truth</h3>
-        <p class="text-cream text-sm mb-6">Did the profile match your inner reality? Be honest.</p>
-        <textarea id="feedback-text" class="recode-field" style="margin:0 0 24px 0; min-height:100px; background: white !important; color: black !important;" placeholder="Your truth here..."></textarea>
-        <div class="flex gap-4">
-            <button class="btn-gold" style="margin:0; width:50%; background:transparent; border:1.5px solid #D4AF37 !important; color:#D4AF37 !important;" onclick="S.closeTruth()">Close</button>
-            <button class="btn-gold" style="margin:0; width:50%;" onclick="S.submitTruth()">Submit</button>
-        </div>
+  <div class="modal-content">
+    <h3 style="color:var(--gold);font-size:22px;margin-bottom:12px">Tell the Truth</h3>
+    <p style="color:var(--cream);font-size:14px;margin-bottom:20px">Did the profile match your inner reality?</p>
+    <textarea id="feedback-text" class="field" style="margin-bottom:20px" placeholder="Your truth here..."></textarea>
+    <div style="display:flex;gap:12px">
+      <button class="btn-ghost" style="flex:1;width:auto;margin:0" onclick="S.closeTruth()">Close</button>
+      <button class="btn-gold" style="flex:1;width:auto;margin:0" onclick="S.submitTruth()">Submit</button>
     </div>
+  </div>
 </div>
 
-<div id="founder-screen" class="screen active">
-    <div class="screen-pad text-center">
-        <div class="founder-photo-wrap">
-            <img src="https://ishitaedu8.github.io/nara/assets/ishita.jpg" alt="Ishita Ghosh" onerror="this.src='https://customer-assets.emergentagent.com/wingman/eb358bd2-9b79-4f1e-a1ab-99b2658eb5f7/attachments/70b5e084dace44d9a09df4971e0ad6c3_image.bin'">
-        </div>
-        <h2 class="founder-name">Ishita Ghosh</h2>
-        <p class="founder-subtitle">Solo Founder & Systems Architect</p>
-        <div class="story-box">
-            My name is Ishita Ghosh. I was an elite athlete. Former World Ranker in Karate. National Champion in Powerlifting. My body was my weapon.<br><br>
-            Then in early 2024, everything stopped. 23 days in a semi-coma state. I could not speak. I could not eat alone. My mother taught me to brush my teeth again like a small child.<br><br>
-            Doctors gave me a 5-year prognosis to recover. I beat it in 1 year.<br><br>
-            In April 2026, I completed my graduation and received my degree.<br><br>
-            NARA is the system I built so you can find your 100th degree without first losing everything. Welcome to the Body Realm.
-        </div>
-        <button class="btn-gold" onclick="S.show('beta-signup')">Begin Journey</button>
-    </div>
+<div id="bottom-nav" class="bottom-nav">
+  <button class="nav-tab active" onclick="S.navTo('dashboard-screen',this)">DEGREES</button>
+  <button class="nav-tab" onclick="S.navTo('mission-screen',this)">PROTOCOL</button>
+  <button class="nav-tab" onclick="S.navTo('cv-screen',this)">FOUNDER</button>
 </div>
 
-<div id="beta-signup" class="screen">
-    <div class="screen-pad">
-        <h2 class="text-gold text-2xl mb-8 uppercase text-center">Join the Council</h2>
-        <div class="glass-card">
-            <input type="text" id="u-name" placeholder="Full Name">
-            <input type="number" id="u-phone" placeholder="WhatsApp Number">
-            <input type="email" id="u-email" placeholder="Email Address">
-            <label class="text-gold text-[10px] font-bold uppercase block mb-2">Mother Tongue</label>
-            <select id="u-lang">
-                <option value="en-IN">English</option>
-                <option value="hi-IN">Hinglish</option>
-                <option value="bn-IN">Banglish</option>
-            </select>
-            <button class="btn-gold mt-4" style="width:100%; margin: 20px 0 0;" onclick="S.claimSpot()">Claim My Spot</button>
-        </div>
+<!-- ══════════════════════════════
+     CV SCREEN — LOADS FIRST
+══════════════════════════════ -->
+<div id="cv-screen" class="screen active">
+
+  <div class="cv-hero">
+    <!-- PHOTO: tries GitHub Pages first, falls back to initials if missing -->
+    <div class="cv-photo-ring">
+      <img
+        id="hero-photo"
+        src="https://ishitaedu8.github.io/nara/assets/ishita.jpg"
+        alt="Ishita Ghosh"
+        style="width:100%;height:100%;object-fit:cover;display:block"
+        onerror="this.style.display='none';document.getElementById('hero-initials').style.display='flex'"
+      >
+      <div id="hero-initials" style="display:none;width:100%;height:100%;align-items:center;justify-content:center">
+        <span class="cv-photo-fallback">IG</span>
+      </div>
     </div>
-</div>
-
-<div id="mission-entry" class="screen">
-    <div class="screen-pad flex flex-col items-center justify-center min-h-full text-center">
-        <h1 class="text-6xl text-gold mb-2">NARA</h1>
-        <p class="text-gray-400 tracking-[0.4em] uppercase text-[10px] mb-12">The Body Realm</p>
-        <button class="btn-gold" onclick="S.startQuiz()">Begin Assessment</button>
+    <div class="cv-name">Ishita Ghosh</div>
+    <div class="cv-title-line">Founder, NARA · Co-Founder, Evolvish · World-Ranked Athlete</div>
+    <div class="cv-tags">
+      <span class="cv-tag hot">Anthropic-Certified · 2026</span>
+      <span class="cv-tag hot">EF Applicant</span>
+      <span class="cv-tag">Mumbai, India</span>
+      <span class="cv-tag">Age 25</span>
     </div>
-</div>
-
-<div id="quiz-screen" class="screen">
-    <div class="screen-pad">
-        <div class="progress-bar-container"><div id="q-progress" class="progress-fill"></div></div>
-        <div id="q-card" class="quiz-card">
-            <div id="q-content">
-                <div class="text-gold text-[10px] font-bold mb-4 uppercase" id="q-num">Card 1 of 10</div>
-                <div class="q-text" id="q-title"></div>
-                <div id="q-options" class="space-y-3"></div>
-            </div>
-        </div>
+    <div class="cv-links">
+      <a href="https://www.linkedin.com/in/ishita-ghosh-5a4322390" target="_blank">LinkedIn ↗</a>
+      <span style="color:var(--muted)">·</span>
+      <a href="https://github.com/ishitaedu8" target="_blank">GitHub ↗</a>
+      <span style="color:var(--muted)">·</span>
+      <span style="color:var(--muted)">@the_ishita_ghosh</span>
     </div>
-</div>
+  </div>
 
-<div id="quiz-result" class="screen">
-    <div class="screen-pad text-center">
-        <h2 class="serif text-gold text-3xl mb-4 uppercase tracking-widest" id="resProfile"></h2>
-        <div id="resOrb" class="glowing-orb mx-auto"></div>
-        <div class="glass-card mb-10"><p class="text-white text-sm leading-relaxed" id="resDesc"></p></div>
-        <button class="btn-gold" onclick="S.show('wisdom-screen')">Understand Logic</button>
+  <div class="cv-section">
+    <div class="cv-section-title">The Honest Architect</div>
+    <div class="cv-story">
+      <p>I was a <strong>World-Ranked Karate athlete</strong> and <strong>National Powerlifting Champion</strong> for 13 years. My body was my weapon.</p>
+      <p>In 2024, I had a severe neuropsychiatric episode — <strong>23 days in a semi-coma state.</strong> I could hear everything. I could not respond. Doctors gave me a minimum 5-year recovery timeline. My parents, with no clinical training, added daily breathwork and 30 minutes of structured body movement — instinctively, every single day.</p>
+      <p>I recovered in <strong>1 year.</strong> Graduated Mumbai University at 25 in April 2026. On April 22, I read <em>The Embodied Frequency</em> by Gamal S. and recognised exactly what my parents had done: <strong>documented somatic science.</strong></p>
+      <p><strong>NARA is the productised version of the protocol that returned me.</strong></p>
     </div>
-</div>
+  </div>
 
-<div id="wisdom-screen" class="screen">
-    <div class="screen-pad text-center">
-        <h2 class="text-white text-3xl mb-8">The Iceberg Reality</h2>
-        <div class="iceberg-wrap">
-            <div class="ice-layer mental">5% MENTAL</div>
-            <div class="ice-layer emotional">25% EMOTIONAL</div>
-            <div class="ice-layer somatic" style="padding: 30px 12px; border-width: 2px;">70% SOMATIC (BODY)</div>
-        </div>
-        <button class="btn-gold" onclick="S.goMission()">Start Mission</button>
+  <div class="cv-divider"></div>
+
+  <div class="cv-section">
+    <div class="cv-section-title">Ventures</div>
+    <div class="cv-entry">
+      <div class="cv-entry-head"><div class="cv-entry-title">Founder & Architect — NARA</div><div class="cv-entry-date">2024–Present</div></div>
+      <div class="cv-entry-org">Execution Intelligence OS · ishitaedu8.github.io/nara</div>
+      <div class="cv-entry-desc">Built solo, zero CS background. AI reads nervous-system state → prescribes 3-min protocol → triggers the task you've been avoiding. <strong>Live on this page.</strong> Stack: Claude Code · Supabase · Vercel. Applying to EF San Francisco.</div>
     </div>
-</div>
-
-<div id="mission-screen" class="screen">
-    <div class="screen-pad text-center">
-        <div id="step-1" class="mission-step">
-            <h3 class="text-gold uppercase text-xs tracking-widest mb-2">Step 1: Return with Safety</h3>
-            <div class="orb-container">
-                <div class="orb" id="breathOrb" onclick="S.toggleBreathing()">
-                    <span class="orb-text" id="orbText">TAP TO START</span>
-                </div>
-                <div class="cycle-count">Cycle <span id="cycleNum">0</span> of 4</div>
-            </div>
-            <div class="text-gold font-black text-2xl h-8" id="breath-timer"></div>
-            <button id="breath-next" class="btn-gold hidden" onclick="S.nextStep()">Next Step</button>
-        </div>
-        <div id="step-2" class="mission-step hidden">
-            <h3 class="text-gold uppercase text-xs tracking-widest mb-1">Complete the Cycle</h3>
-            <div class="release-grid">
-                <div class="release-card" onclick="S.release('SHAKE')"><div class="emotion-label">Anxiety</div><div class="action-label">SHAKE</div></div>
-                <div class="release-card" onclick="S.release('CRY')"><div class="emotion-label">Grief</div><div class="action-label">CRY</div></div>
-                <div class="release-card" onclick="S.release('RAGE')"><div class="emotion-label">Anger</div><div class="action-label">RAGE</div></div>
-                <div class="release-card" onclick="S.release('STOMP')"><div class="emotion-label">Numbness</div><div class="action-label">STOMP</div></div>
-            </div>
-            <div id="rel-timer-ui" class="hidden py-10"><div class="text-gold text-6xl font-black mb-2" id="rel-time">60</div><button id="rel-next" class="btn-gold opacity-50 pointer-events-none" onclick="S.nextStep()">Wait...</button></div>
-        </div>
-        <div id="step-3" class="mission-step hidden">
-            <h3 class="text-gold uppercase text-xs tracking-widest mb-6">Update Your Body's Rules</h3>
-            <textarea id="recode-input" class="recode-field" placeholder="I am safe to be seen..."></textarea>
-            <button class="btn-gold" onclick="S.finishMission()">Encode Decision</button>
-        </div>
+    <div class="cv-entry">
+      <div class="cv-entry-head"><div class="cv-entry-title">Co-Founder & System Architect — Evolvish</div><div class="cv-entry-date">2025–Present</div></div>
+      <div class="cv-entry-org">India's first Emotional Performance Architecture company</div>
+      <div class="cv-entry-desc">Designed the complete <strong>Rs.65,000 Signal Protocol</strong>, Sovereign Diagnostic, client journey, session frameworks, and digital acquisition system. Co-founder: Inderjeet Kaur (Bach Centre England, 11 yrs, 300+ clients).</div>
     </div>
-</div>
-
-<div id="completion-screen" class="screen">
-    <div class="screen-pad text-center">
-        <div class="degree-num">1</div>
-        <div class="degree-label">DEGREE GAINED</div>
-        <p class="remain-text">89 degrees remain.</p>
-        <p class="water-logic">Water does not become steam at 99 degrees. Return tomorrow for degree 2.</p>
-        <button class="btn-gold" onclick="S.showTruth()">Tell the Truth</button>
+    <div class="cv-entry">
+      <div class="cv-entry-head"><div class="cv-entry-title">Research Lead — Emotavia</div><div class="cv-entry-date">2025</div></div>
+      <div class="cv-entry-org">Emotional Tech Model · Mumbai University Aavishkar</div>
+      <div class="cv-entry-desc">Led team to <strong>5th of ~400</strong> in Mumbai University's research competition (Humanities category). Maps emotional states to physiological signals. Paused — returning when funded.</div>
     </div>
-</div>
-
-<div id="tracker-screen" class="screen">
-    <div class="screen-pad text-center">
-        <h3 class="text-gold uppercase text-xs tracking-widest mb-10">Your Progress</h3>
-        <div class="degree-num" id="dash-degree">1</div>
-        <div class="degree-label">Current Degree</div>
-        <div class="glass-card text-left mb-8"><h4 class="text-gold text-[10px] uppercase tracking-widest mb-2">Active Biological Rule</h4><p id="dash-rule" class="text-cream italic text-sm font-medium">"No rule encoded yet."</p></div>
-        <div class="glass-card text-left"><h4 class="text-gold text-[10px] uppercase tracking-widest mb-2">90-Day Trajectory</h4><div class="progress-bar-container" style="margin:10px 0;"><div id="streak-progress" class="progress-fill" style="width:1%"></div></div><p class="text-gray-500 text-[10px] text-right">1 / 90 Days</p></div>
+    <div class="cv-entry">
+      <div class="cv-entry-head"><div class="cv-entry-title">Social Media Marketing Intern</div><div class="cv-entry-date">Current</div></div>
+      <div class="cv-entry-org">Slavs Agrotech Pvt Ltd · Slavs Impex</div>
+      <div class="cv-entry-desc">AI-driven content strategy and automation for organic agriculture and agro-export B2B audiences.</div>
     </div>
-</div>
+  </div>
 
-<div id="circle-screen" class="screen">
-    <div class="screen-pad flex flex-col items-center justify-center min-h-full text-center">
-        <h2 class="text-gold text-4xl mb-4">The Council</h2>
-        <button class="btn-gold" onclick="window.open('https://chat.whatsapp.com/F9zo04ZCnpZ9B8iOUgshGq')">Join Council</button>
-    </div>
-</div>
+  <div class="cv-divider"></div>
 
-<nav id="bnav" class="bottom-nav">
-    <button class="nav-tab" id="tab-mission" onclick="S.nav('mission-entry')">MISSION</button>
-    <button class="nav-tab" id="tab-tracker" onclick="S.nav('tracker-screen')">TRACKER</button>
-    <button class="nav-tab" id="tab-circle" onclick="S.nav('circle-screen')">THE CIRCLE</button>
-</nav>
-
-<script>
-const S = (() => {
-    let state = {
-        day: parseInt(localStorage.getItem('nara_day') || '1'),
-        voice: false, lang: 'en-IN',
-        decision: localStorage.getItem('nara_rule') || "No rule encoded yet.",
-        cycles: 0, isBreathing: false, qIdx: 0, missionStep: 1
-    };
-    const cards = [
-        { q: "When someone criticizes you, you feel?", o: ["Numb", "Rage", "Shame", "Invisible"] },
-        { q: "In the morning, your body feels?", o: ["Heavy", "Wired", "Numb", "Grounded"] },
-        { q: "When conflict arises, you?", o: ["Shut down", "Explode", "Dissociate", "Stay regulated"] },
-        { q: "Your relationship with rest is?", o: ["Unsafe", "Guilty crash", "Never restored", "Deeply recharging"] },
-        { q: "In close relationships, you tend to?", o: ["Push away", "Merge", "Keep a wall", "Healthy boundaries"] },
-        { q: "Your inner critic sounds like?", o: ["A drill sergeant", "Disappointed parent", "Body tension", "A coach"] },
-        { q: "When thinking of the future, you feel?", o: ["Dread", "Anxiety", "Blank", "Excitement"] },
-        { q: "Your breathing right now is?", o: ["Shallow", "Holding", "Quick", "Deep"] },
-        { q: "Your energy at 3 PM?", o: ["Crashes", "Gets anxious", "Stays flat", "Flows steadily"] },
-        { q: "When asked 'How are you?', you say?", o: ["'Fine'", "I don't know", "Minimized real answer", "Accurate state"] }
-    ];
-
-    function speak(text) {
-        if(!state.voice) return;
-        window.speechSynthesis.cancel();
-        const u = new SpeechSynthesisUtterance(text); u.rate = 0.85; u.pitch = 1.0; u.lang = state.lang; window.speechSynthesis.speak(u);
-    }
-
-    function toggleVoice() {
-        state.voice = !state.voice;
-        document.getElementById('voice-guide-toggle').innerText = state.voice ? "VOICE GUIDE: ON" : "VOICE GUIDE: OFF";
-        if(state.voice) {
-            speak("NARA Activated.");
-            if(document.getElementById('founder-screen').classList.contains('active')) {
-                speak("My name is Ishita Ghosh. I was an elite athlete. Former World Ranker in Karate. National Champion in Powerlifting. My body was my weapon. Then in early 2024, everything stopped. 23 days in a semi-coma state. I could not speak. I could not eat alone. My mother taught me to brush my teeth again like a small child. Doctors gave me 1825 days to recover. I beat it in 365. The tool was somatic science. The system I discovered to rebuild myself became NARA. I built this so you can find your 100th degree without first losing everything. Welcome to the Body Realm.");
-            }
-        }
-    }
-
-    function show(id) {
-        document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-        document.getElementById(id).classList.add('active');
-        if(id === 'tracker-screen') {
-            document.getElementById('dash-degree').innerText = state.day;
-            document.getElementById('dash-rule').innerText = `"${state.decision}"`;
-            document.getElementById('streak-progress').style.width = `${(state.day/90)*100}%`;
-        }
-    }
-
-    function nav(id) {
-        show(id);
-        document.getElementById('bnav').classList.add('visible');
-        document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-        if(id === 'mission-entry') document.getElementById('tab-mission').classList.add('active');
-        if(id === 'tracker-screen') document.getElementById('tab-tracker').classList.add('active');
-        if(id === 'circle-screen') document.getElementById('tab-circle').classList.add('active');
-    }
-
-    function toggleStory() { document.getElementById('embedded-story').classList.toggle('hidden'); }
-    function claimSpot() { 
-        const name = document.getElementById('u-name').value;
-        const phone = document.getElementById('u-phone').value;
-        if(!name || !phone) return alert("Enter details.");
-        state.lang = document.getElementById('u-lang').value; 
-        show('mission-entry'); 
-    }
-    function startQuiz() { state.qIdx = 0; renderQ(); show('quiz-screen'); }
-
-    function renderQ() {
-        const c = cards[state.qIdx];
-        const el = document.getElementById('q-card');
-        el.style.opacity = 0;
-        setTimeout(() => {
-            document.getElementById('q-num').innerText = `Card ${state.qIdx+1} of 10`;
-            document.getElementById('q-title').innerText = c.q;
-            document.getElementById('q-progress').style.width = `${((state.qIdx+1)/10)*100}%`;
-            const box = document.getElementById('q-options');
-            box.innerHTML = '';
-            c.o.forEach(opt => {
-                const b = document.createElement('button');
-                b.className = 'opt-btn'; b.innerText = opt;
-                b.onclick = () => { if(state.qIdx < 9) { state.qIdx++; renderQ(); } else { finishQuiz(); } };
-                box.appendChild(b);
-            });
-            el.style.opacity = 1;
-            speak(c.q);
-        }, 300);
-    }
-
-    function finishQuiz() {
-        const counts = [0,0,0,0];
-        state.answers.forEach(a => counts[a]++);
-        const most = counts.indexOf(Math.max(...counts));
-        const profiles = [
-            { n: "SAFETY SEEKER", c: "red", t: "Your system broadcasts: I am not safe." },
-            { n: "INVISIBLE PROTECTOR", c: "red-orange", t: "Your system broadcasts: Being seen is dangerous." },
-            { n: "LOVE AVOIDER", c: "orange", t: "Your system broadcasts: Love leads to pain." },
-            { n: "ABUNDANCE BLOCKER", c: "yellow-red", t: "Biological ceiling detected." }
-        ];
-        document.getElementById('resProfile').innerText = profiles[most].n;
-        document.getElementById('resOrb').className = 'glowing-orb mx-auto ' + profiles[most].c;
-        document.getElementById('resDesc').innerText = profiles[most].t;
-        show('quiz-result');
-    }
-
-    function goMission() { state.missionStep = 1; nav('mission-screen'); }
-
-    function toggleBreathing() {
-        if(state.isBreathing) { state.isBreathing = false; } 
-        else { state.isBreathing = true; state.cycles = 0; runCycle(); }
-    }
-
-    function runCycle() {
-        if(!state.isBreathing) return;
-        const orb = document.getElementById('breathOrb');
-        const txt = document.getElementById('orbText');
-        const timer = document.getElementById('breath-timer');
-        txt.innerText = "INHALE"; orb.style.transition = "transform 4s linear"; orb.style.transform = "scale(1.4)";
-        let c = 4; timer.innerText = c; speak("Inhale");
-        let i = setInterval(() => {
-            c--; if(c>=0) timer.innerText = c;
-            if(c<=0) {
-                clearInterval(i);
-                txt.innerText = "HOLD"; orb.style.transition = "none";
-                let h = 7; timer.innerText = h; speak("Hold");
-                let j = setInterval(() => {
-                    h--; if(h>=0) timer.innerText = h;
-                    if(h<=0) {
-                        clearInterval(j);
-                        txt.innerText = "EXHALE"; orb.style.transition = "transform 8s linear"; orb.style.transform = "scale(1.0)";
-                        let e = 8; timer.innerText = e; speak("Exhale");
-                        let k = setInterval(() => {
-                            e--; if(e>=0) timer.innerText = e;
-                            if(e<=0) {
-                                clearInterval(k); state.cycles++; document.getElementById('cycleNum').innerText = state.cycles;
-                                if(state.cycles >= 4) {
-                                    state.isBreathing = false; txt.innerText = "COMPLETE";
-                                    document.getElementById('breath-next').classList.remove('hidden');
-                                    speak("Step 1 Complete");
-                                } else runCycle();
-                            }
-                        }, 1000);
-                    }
-                }, 1000);
-            }
-        }, 1000);
-    }
-
-    function release(type) {
-        document.getElementById('rel-timer-ui').classList.remove('hidden');
-        let c = 60; const timer = document.getElementById('rel-time'); const btn = document.getElementById('rel-next');
-        const msgs = { SHAKE: "Vibrate every limb.", CRY: "Let the water flow.", RAGE: "Growl.", STOMP: "Ground yourself." };
-        speak(msgs[type]);
-        let i = setInterval(() => { c--; timer.innerText = c; if(c<=0) { clearInterval(i); btn.innerText = "Next Step"; btn.classList.remove('opacity-50', 'pointer-events-none'); } }, 1000);
-    }
-
-    function nextStep() {
-        document.querySelectorAll('.mission-step').forEach(s => s.classList.add('hidden'));
-        state.missionStep++;
-        document.getElementById(`step-${state.missionStep}`).classList.remove('hidden');
-    }
-
-    function finishMission() {
-        const val = document.getElementById('recode-input').value;
-        if(!val) return alert("Write your rule.");
-        state.decision = val; localStorage.setItem('nara_rule', val);
-        show('completion-screen');
-    }
-
-    function showTruth() { document.getElementById('truth-modal').classList.add('active'); }
-    function closeTruth() { document.getElementById('truth-modal').classList.remove('active'); }
-    function submitTruth() { closeTruth(); state.day++; localStorage.setItem('nara_day', state.day); nav('tracker-screen'); }
-
-    return { toggleVoice, show, nav, claimSpot, startQuiz, toggleBreathing, release, nextStep, finishMission, showTruth, closeTruth, submitTruth, toggleStory, goMission };
-})();
-</script>
-</body>
-</html>
+  <div class="cv-section">
+    <div class="cv-section-title">Education</div>
+    <div class="cv-entry">
+      <div class="cv-entry-head"><div class="cv-entry-title">BAMMC — Journalism Specialisation</div><div class="cv-entry-date">2022–2026</div></div>
+      <div class="cv-entry-org">SIES College, Nerul · University of Mumbai</div>
+      <div class="cv-entry-desc"><strong>Graduated April 2026.</strong>                
